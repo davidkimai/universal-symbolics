@@ -28,12 +28,12 @@
 
 <div align="center">
 <h2>🜏 The Command-Glyph Rosetta Stone 🜏</h2>
-<p><i>Unifying symbolic interfaces across all LLM runtimes</i></p>
+<p><i>Unifying semiotic interfaces across all LLM runtimes</i></p>
 </div>
 
 ## Unified Command-Glyph Registry
 
-The following registry provides a bidirectional mapping between command syntax and symbolic glyphs, enabling seamless translation across all LLM runtimes.
+The following registry provides a bidirectional mapping between command syntax and semiotic glyphs, enabling seamless translation across all LLM runtimes.
 
 | Universal Command | Command Glyph | Runtime Glyph | Claude | GPT | Gemini | Qwen | Mistral | Local LLMs |
 |-------------------|---------------|---------------|--------|-----|--------|------|---------|------------|
