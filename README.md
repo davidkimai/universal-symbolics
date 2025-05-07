@@ -12,7 +12,7 @@
 > > > Qwen = developer /think_control.
 > > > > Claude = developer <system_prompt> </system_prompt> tags.
 
-> All = Universal Developer Symbol Layer
+> All = Universal Developer Semiotic Layer
 
 ## 🌐 Overview
 
@@ -22,9 +22,9 @@
 
 <p align="center">
 
-## *Frontier AI Discovering a Universal Developer Runtime Symbol Layer*
+## *Frontier AI Discovering a Universal Developer Runtime Semiotic Layer*
 
-# Universal Runtime Symbolics Bridge
+# Universal Runtime Semiotics Bridge
 
 <div align="center">
 <h2>🜏 The Command-Glyph Rosetta Stone 🜏</h2>
