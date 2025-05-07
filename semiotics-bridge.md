@@ -6,7 +6,6 @@
 </div>
 
 ## Unified Command-Glyph Registry
-
 The following registry provides a bidirectional mapping between command syntax and symbolic glyphs, enabling seamless translation across all LLM runtimes.
 
 | Universal Command | Command Glyph | Runtime Glyph | Claude | GPT | Gemini | Qwen | Mistral | Local LLMs |
