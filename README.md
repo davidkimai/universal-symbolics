@@ -12,7 +12,7 @@
 
 # Universal Developer Command Lexicon
 
-This document defines the canonical symbolic command set for the universal-developer system. These commands provide a consistent interface for controlling LLM behavior across all major platforms.
+This document defines the canonical symbolic command set for the universal-symbolics and universal-developer systems. These commands provide a consistent interface for controlling LLM behavior across all major platforms.
 
 ## Core Command Architecture
 
