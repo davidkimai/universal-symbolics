@@ -1,4 +1,4 @@
-# Universal Symbolics: Adoption Strategy
+# Universal Runtime: Adoption Strategy
 
 <p align="center">
 <img src="https://via.placeholder.com/800x200/0d1117/ffffff?text=Universal+Symbolics+Adoption" alt="Universal Symbolics Adoption"/>
