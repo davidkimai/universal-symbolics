@@ -10,438 +10,214 @@
 
 `universal-symbolics` provides a unified interface for developer operations across frontier AI models. This repository standardizes the disparate symbolic grammars used by different AI vendors (Claude, GPT, Qwen, Gemini, DeepSeek, etc.) into a cohesive, developer-friendly framework.
 
-## 🔄 Core Components
+# Universal Developer Command Lexicon
 
-### 1. Symbolic Grammar Mapping
+This document defines the canonical symbolic command set for the universal-developer system. These commands provide a consistent interface for controlling LLM behavior across all major platforms.
 
-```yaml
-# unified-symbolic-layer.yml
-mappings:
-  thinking:
-    claude: "<think>...</think>"
-    qwen: "/think"
-    anthropic_api: {"thinking": true}
-    openai_api: {"tool_choice": "auto"}
-    gemini: "{{thinking}}"
-  
-  tool_invocation:
-    claude: "<tool>...</tool>"
-    openai: "/command"
-    qwen: "#tool()"
-    
-  system_directive:
-    claude: "<system>...</system>"
-    openai: "<|system|>"
-    qwen: "<<SYS>>"
-    gemini: "system:"
-    
-  metadata_tags:
-    claude: "<metadata>...</metadata>"
-    openai: "/meta"
-    
-  visual_processing:
-    openai: "/create image"
-    claude: "<vision>...</vision>"
-    gemini: "analyze_image()"
+## Core Command Architecture
+
+Each symbolic command follows a consistent structure:
+
+```
+/command [--parameter=value] [--flag] prompt
 ```
 
-### 2. Runtime Adapter Interface
+Commands can be chained to create complex processing pipelines:
 
-```typescript
-// universal-symbols.ts
-export interface SymbolicRuntime {
-  // Core operations
-  think(content?: string): Promise<ThinkingResult>;
-  tool(name: string, params: Record<string, any>): Promise<ToolResult>;
-  system(directive: string): Promise<void>;
-  
-  // Vendor-specific extensions
-  vendor: {
-    claude?: ClaudeSymbolicExtensions;
-    openai?: OpenAISymbolicExtensions;
-    qwen?: QwenSymbolicExtensions;
-    // etc.
-  };
-  
-  // Unified operations
-  symbolic: {
-    recurse(depth: number): Promise<void>;
-    reflect(target: string): Promise<ReflectionResult>;
-    fork(paths: string[]): Promise<ForkResult>;
-    map(source: any, target: any): Promise<MappingResult>;
-    collapse(state: any): Promise<void>;
-  };
-}
+```
+/think /loop --iterations=3 What are the ethical implications of artificial general intelligence?
 ```
 
-### 3. Symbolic Compatibility Layer
+## Core Command Set
+
+### Cognitive Depth Commands
+
+| Command | Description | Parameters | Platforms |
+|---------|-------------|------------|-----------|
+| `/think` | Activates extended reasoning pathways, enabling deeper analysis, step-by-step thinking, and more thorough consideration | None | All |
+| `/fast` | Optimizes for low-latency, concise responses | None | All |
+| `/reflect` | Triggers meta-analysis of outputs, encouraging critical examination of biases, limitations, and assumptions | None | All |
+| `/collapse` | Returns to default behavior, disabling any special processing modes | None | All |
+
+### Process Control Commands
+
+| Command | Description | Parameters | Platforms |
+|---------|-------------|------------|-----------|
+| `/loop` | Enables iterative refinement cycles | `--iterations=<number>` - Number of refinement iterations (default: 3) | All |
+| `/fork` | Generates multiple alternative responses | `--count=<number>` - Number of alternatives to generate (default: 2) | All |
+| `/branch` | Creates conditional execution paths based on criteria evaluation | `--condition=<string>` - Condition to evaluate<br>`--then=<string>` - Command if true<br>`--else=<string>` - Command if false | All |
+| `/merge` | Combines multiple outputs into a unified response | `--strategy=<concatenate\|synthesize\|tabulate>` - Merge strategy (default: synthesize) | All |
+
+### Formatting Commands
+
+| Command | Description | Parameters | Platforms |
+|---------|-------------|------------|-----------|
+| `/format` | Controls output formatting | `--style=<markdown\|json\|text\|html\|csv>` - Output format (default: markdown) | All |
+| `/length` | Controls response length | `--words=<number>` - Target word count<br>`--level=<brief\|moderate\|detailed>` - Verbosity level | All |
+| `/structure` | Applies structural templates to responses | `--template=<essay\|list\|qa\|table\|timeline>` - Structure template | All |
+| `/voice` | Sets the stylistic voice | `--tone=<formal\|neutral\|casual>` - Tone setting<br>`--style=<string>` - Specific writing style | All |
+
+### Domain-Specific Commands
+
+| Command | Description | Parameters | Platforms |
+|---------|-------------|------------|-----------|
+| `/code` | Optimizes for code generation | `--language=<string>` - Programming language<br>`--explain=<boolean>` - Include explanations | All |
+| `/science` | Activates scientific reasoning mode | `--discipline=<string>` - Scientific field<br>`--evidence=<boolean>` - Include evidence citations | All |
+| `/creative` | Enhances creative generation | `--domain=<writing\|design\|ideas>` - Creative domain<br>`--constraints=<string>` - Creative constraints | All |
+| `/debate` | Presents multiple perspectives on a topic | `--sides=<number>` - Number of perspectives<br>`--format=<string>` - Debate format | All |
+
+### Interaction Commands
+
+| Command | Description | Parameters | Platforms |
+|---------|-------------|------------|-----------|
+| `/chain` | Creates a sequential processing chain | `--steps=<string>` - Comma-separated sequence of steps | All |
+| `/stream` | Enables token-by-token streaming responses | `--chunks=<number>` - Chunk size for batched streaming | Claude, OpenAI |
+| `/context` | Manages prompt context window | `--retain=<key:value,...>` - Key information to retain<br>`--forget=<key:value,...>` - Information to discard | All |
+| `/memory` | Controls cross-prompt memory behavior | `--store=<string>` - Information to remember<br>`--recall=<string>` - Information to retrieve | All |
+
+### Tool Integration Commands
+
+| Command | Description | Parameters | Platforms |
+|---------|-------------|------------|-----------|
+| `/tool` | Invokes specific external tools | `--name=<string>` - Tool name<br>`--args=<json>` - Tool arguments | Claude, OpenAI, Gemini |
+| `/search` | Performs web search via configured provider | `--provider=<string>` - Search provider<br>`--count=<number>` - Result count | OpenAI, Gemini |
+| `/retrieve` | Fetches information from vector database | `--source=<string>` - Knowledge source<br>`--filter=<string>` - Query filters | All |
+| `/execute` | Runs code in a sandbox environment | `--language=<string>` - Programming language<br>`--timeout=<number>` - Execution timeout | Claude, OpenAI |
+
+### Advanced Commands
+
+| Command | Description | Parameters | Platforms |
+|---------|-------------|------------|-----------|
+| `/expert` | Activates domain expertise persona | `--domain=<string>` - Area of expertise<br>`--level=<number>` - Expertise level (1-5) | All |
+| `/evaluate` | Performs self-evaluation of generated content | `--criteria=<string>` - Evaluation criteria<br>`--scale=<number>` - Rating scale | All |
+| `/adapt` | Dynamically adjusts behavior based on feedback | `--target=<accuracy\|creativity\|helpfulness>` - Adaptation target | All |
+| `/trace` | Creates attribution trace for generated content | `--format=<inline\|separate\|citation>` - Trace format | Claude |
+
+## Platform-Specific Translation Table
+
+### Anthropic Claude
+
+| Universal Command | Claude Implementation | Notes |
+|-------------------|------------------------|-------|
+| `/think` | Enable `thinking` parameter | Claude has native thinking mode |
+| `/fast` | Disable `thinking` + system prompt for brevity | |
+| `/loop` | Custom system prompt with iterative instruction | |
+| `/reflect` | Enable `thinking` + system prompt for reflection | |
+| `/format` | System prompt for format control | |
+
+### OpenAI Models
+
+| Universal Command | OpenAI Implementation | Notes |
+|-------------------|------------------------|-------|
+| `/think` | System prompt for step-by-step reasoning | No native thinking mode |
+| `/fast` | Adjust temperature + max_tokens + system prompt | |
+| `/loop` | System prompt with iterative instruction | |
+| `/reflect` | System prompt for reflection | |
+| `/format` | Direct JSON mode or system prompt | |
+
+### Google Gemini
+
+| Universal Command | Gemini Implementation | Notes |
+|-------------------|------------------------|-------|
+| `/think` | Safety settings + system prompt | |
+| `/fast` | Lower max_tokens + adjusted temperature | |
+| `/loop` | System prompt with iterative instruction | |
+| `/reflect` | System prompt for reflection | |
+| `/format` | System prompt for format control | |
+
+### Qwen3
+
+| Universal Command | Qwen3 Implementation | Notes |
+|-------------------|------------------------|-------|
+| `/think` | Native `/think` command | Qwen has native thinking mode |
+| `/fast` | Native `/no_think` command | Qwen has native fast mode |
+| `/loop` | System prompt with iterative instruction | |
+| `/reflect` | Native `/think` + system prompt | |
+| `/format` | System prompt for format control | |
+
+### Ollama / Local Models
+
+| Universal Command | Local Implementation | Notes |
+|-------------------|------------------------|-------|
+| `/think` | System prompt for reasoning | |
+| `/fast` | Adjusted max_tokens + temperature | |
+| `/loop` | System prompt with iterative instruction | |
+| `/reflect` | System prompt for reflection | |
+| `/format` | System prompt for format control | |
+
+## Command Parameter Specification
+
+### Parameter Types
+
+- `string`: Text value
+- `number`: Numeric value
+- `boolean`: True/false value
+- `enum`: One of a predefined set of values
+- `json`: JSON-formatted object
+
+### Parameter Validation
+
+Each parameter includes validation rules:
+- Required/optional status
+- Default values
+- Value constraints (min/max for numbers, pattern for strings)
+- Error messages for invalid values
+
+## Command Chain Processing
+
+Commands can be chained in sequence, with the output of each command feeding into the next:
+
+```
+/think /format --style=markdown What are the ethical implications of AI?
+```
+
+This is processed as:
+1. Apply `/think` to encourage deep reasoning
+2. Apply `/format --style=markdown` to the result of the thinking process
+
+## Command Adoption Metrics
+
+The universal-developer framework includes telemetry to track command adoption rates:
+
+- Command usage frequency
+- Common command chains
+- Parameter usage patterns
+- Platform-specific command effectiveness
+- Retention rates for developers using symbolic commands
+
+## Command Extension Protocol
+
+Developers can register custom commands following the extension protocol:
 
 ```javascript
-// symbolic-compat.js
-class SymbolicAdapter {
-  constructor(model, vendor) {
-    this.model = model;
-    this.vendor = vendor;
-    this.symbolMap = SymbolRegistry.getMap(vendor);
-  }
-  
-  // Transform universal symbols to vendor-specific syntax
-  transform(universalSymbol, content) {
-    const vendorSymbol = this.symbolMap[universalSymbol];
-    if (!vendorSymbol) throw new Error(`Symbol ${universalSymbol} not supported by ${this.vendor}`);
-    
-    return this.applyTransform(vendorSymbol, content);
-  }
-  
-  // Apply vendor-specific transformations
-  applyTransform(symbol, content) {
-    switch(this.vendor) {
-      case 'claude':
-        return `<${symbol}>${content}</${symbol}>`;
-      case 'qwen':
-        return `/${symbol} ${content}`;
-      case 'openai':
-        return `/${symbol}(${content})`;
-      // etc.
+llm.registerCommand("custom", {
+  description: "Custom command description",
+  parameters: [
+    {
+      name: "param",
+      description: "Parameter description",
+      type: "string",
+      required: false,
+      default: "default value"
     }
+  ],
+  transform: async (prompt, options) => {
+    // Custom implementation
+    // Returns transformed prompt and parameters
   }
-}
-```
-
-### 4. Symbolic Registry (Glyph/Tag/Slash/Operator Dictionary)
-
-```json
-{
-  "symbolic_registry": {
-    "thinking": {
-      "glyphs": ["🧠", "💭", "🤔"],
-      "tags": ["think", "reasoning", "thought"],
-      "slashes": ["/think", "/reasoning", "/thought"],
-      "operators": ["->", "=>", "⇒"]
-    },
-    "reflection": {
-      "glyphs": ["🔄", "🪞", "👁️"],
-      "tags": ["reflect", "introspect", "mirror"],
-      "slashes": ["/reflect", "/introspect", "/mirror"],
-      "operators": ["↻", "⟲", "⇌"]
-    },
-    "recursion": {
-      "glyphs": ["🔁", "♾️", "🔄"],
-      "tags": ["recurse", "loop", "cycle"],
-      "slashes": ["/recurse", "/loop", "/cycle"],
-      "operators": ["↺", "∞", "⥁"]
-    },
-    "forking": {
-      "glyphs": ["🌿", "🔀", "⑂"],
-      "tags": ["fork", "branch", "split"],
-      "slashes": ["/fork", "/branch", "/split"],
-      "operators": ["⎇", "⫝̸", "⊢"]
-    },
-    "collapse": {
-      "glyphs": ["📉", "🔍", "⚱️"],
-      "tags": ["collapse", "reduce", "simplify"],
-      "slashes": ["/collapse", "/reduce", "/simplify"],
-      "operators": ["⊃", "⊇", "⊊"]
-    }
-  }
-}
-```
-
-## 🧰 Developer Tools
-
-### VSCode Extension
-
-```json
-{
-  "name": "universal-symbolics-vscode",
-  "description": "VSCode extension for Universal Symbolics",
-  "features": [
-    "Syntax highlighting for symbolic operations",
-    "Autocompletion for model-specific symbolic grammars",
-    "Inline transformation preview",
-    "Symbolic operation debugging",
-    "One-click transformation between vendor syntaxes"
-  ]
-}
-```
-
-### CLI Tool
-
-```bash
-# Installation
-npm install -g universal-symbolics
-
-# Usage
-usym transform --source claude --target openai --input "file.txt"
-usym validate --syntax "content with symbols"
-usym generate --template thinking --vendor all
-```
-
-### Symbolic Playground
-
-An interactive web application for testing and experimenting with symbolic operations across different AI models:
-
-- Live transformation preview
-- Syntax validation
-- Performance benchmarking
-- Compatibility checking
-- Template gallery
-
-## 📊 Telemetry & Observability
-
-```python
-# telemetry.py
-class SymbolicTelemetry:
-    def __init__(self, api_key=None):
-        self.api_key = api_key
-        self.metrics = {
-            "symbol_usage": Counter(),
-            "vendor_distribution": Counter(),
-            "transformation_success": Counter(),
-            "transformation_failure": Counter(),
-            "latency": Histogram(),
-        }
-    
-    def track_symbol_usage(self, symbol, vendor, success=True):
-        self.metrics["symbol_usage"][symbol] += 1
-        self.metrics["vendor_distribution"][vendor] += 1
-        if success:
-            self.metrics["transformation_success"][f"{symbol}:{vendor}"] += 1
-        else:
-            self.metrics["transformation_failure"][f"{symbol}:{vendor}"] += 1
-    
-    def track_latency(self, operation, duration_ms):
-        self.metrics["latency"].add(operation, duration_ms)
-    
-    def flush(self):
-        # Send metrics to telemetry service
-        if self.api_key:
-            requests.post(
-                "https://api.universal-symbolics.io/telemetry",
-                headers={"Authorization": f"Bearer {self.api_key}"},
-                json=self.metrics
-            )
-```
-
-## 🌉 Integration Examples
-
-### Node.js
-
-```javascript
-const { UniversalSymbolics } = require('universal-symbolics');
-
-// Initialize with your preferred model
-const symbolics = new UniversalSymbolics({ 
-  defaultVendor: 'claude',
-  fallbackVendor: 'openai' 
 });
-
-// Use unified symbols regardless of underlying model
-async function generateWithThinking() {
-  const result = await symbolics.think('Analyze the impact of quantum computing on cryptography');
-  console.log(result.thinking); // Access thinking process
-  console.log(result.output);   // Access final output
-}
 ```
 
-### Python
+## Command Discovery and Documentation
 
-```python
-from universal_symbolics import SymbolicClient
+Commands are discoverable through multiple channels:
 
-# Initialize client
-client = SymbolicClient(
-    api_key="your_api_key",
-    default_vendor="qwen",
-    enable_telemetry=True
-)
-
-# Use the unified interface
-response = client.submit(
-    prompt="Explain the significance of symbolic operations in AI",
-    symbols={
-        "think": True,
-        "reflect": "prompt structure",
-        "fork": ["technical", "simplified"]
-    }
-)
-
-# Access structured response
-print(response.thinking)
-print(response.reflections)
-print(response.forks["technical"])
-print(response.forks["simplified"])
-```
-
-### REST API
-
-```http
-POST https://api.universal-symbolics.io/v1/generate
-Content-Type: application/json
-Authorization: Bearer your_api_key
-
-{
-  "prompt": "Write a function that calculates prime numbers",
-  "symbols": {
-    "think": true,
-    "tool": {
-      "name": "code_interpreter",
-      "language": "python"
-    }
-  },
-  "vendor_preference": ["claude", "openai", "qwen"],
-  "response_format": {
-    "include_symbol_traces": true,
-    "structured": true
-  }
-}
-```
-
-## 📖 Documentation
-
-### Symbol Categories
-
-1. **Cognitive Process Symbols**
-   - Thinking
-   - Reflection
-   - Planning
-   - Analysis
-
-2. **Execution Control Symbols**
-   - Recursion
-   - Forking
-   - Collapse
-   - Termination
-
-3. **Tool Invocation Symbols**
-   - Code Execution
-   - Information Retrieval
-   - Visual Generation
-   - Data Analysis
-
-4. **Structural Symbols**
-   - System Directives
-   - User Context
-   - Memory Management
-   - Meta-Instructions
-
-### Vendor-Specific Implementation Details
-
-- **Claude**: XML-based tag system with explicit opening and closing tags
-- **OpenAI**: Slash command system with function-like syntax
-- **Qwen**: Mixed system with slash commands and thinking directives
-- **Gemini**: Template-based approach with specialized markers
-- **DeepSeek**: Function-oriented symbolic interface
-
-## 🔍 Advanced Features
-
-### Symbolic Residue Detection
-
-```python
-def detect_symbolic_residue(response, model_type):
-    """Detect unresolved or partially processed symbolic operations"""
-    patterns = RESIDUE_PATTERNS[model_type]
-    residue = []
-    
-    for pattern_name, regex in patterns.items():
-        matches = re.findall(regex, response)
-        if matches:
-            residue.append({
-                "type": pattern_name,
-                "matches": matches,
-                "positions": [m.span() for m in re.finditer(regex, response)]
-            })
-    
-    return residue
-```
-
-### Cross-Model Translation
-
-```typescript
-interface TranslationOptions {
-  preserveStructure?: boolean;
-  adaptToCapabilities?: boolean;
-  includeResidueHandling?: boolean;
-}
-
-function translateSymbolicOperations(
-  source: string,
-  sourceModel: ModelType,
-  targetModel: ModelType,
-  options: TranslationOptions = {}
-): TranslationResult {
-  // Extract symbolic operations from source
-  const operations = extractSymbolicOperations(source, sourceModel);
-  
-  // Map to universal representation
-  const universalOps = operations.map(op => mapToUniversal(op, sourceModel));
-  
-  // Transform to target model format
-  const targetOps = universalOps.map(op => {
-    const targetOp = mapToTarget(op, targetModel);
-    
-    // Handle capabilities not present in target model
-    if (options.adaptToCapabilities && !targetOp) {
-      return createCapabilityShim(op, targetModel);
-    }
-    
-    return targetOp;
-  });
-  
-  // Reconstruct content with new symbolic operations
-  return reconstructContent(source, operations, targetOps, options);
-}
-```
-
-## 🔄 Adoption Strategy
-
-### Phase 1: Developer Tools & Libraries
-- Release core library for major programming languages
-- VSCode extension for symbolic authoring
-- Documentation and examples for common use cases
-
-### Phase 2: Enterprise Integration
-- API Gateway for transparent symbolic translation
-- Monitoring and observability tools
-- Compliance and governance frameworks
-
-### Phase 3: Standards Body Formation
-- Establish formal specification for symbolic operations
-- Engage major AI providers in standardization efforts
-- Develop certification program for symbolic compatibility
-
-### Phase 4: Ecosystem Expansion
-- Marketplace for custom symbolic operations
-- Community-contributed symbolic templates
-- Educational resources and certification
-
-## 🌱 Getting Started
-
-```bash
-# Clone the repository
-git clone https://github.com/universal-ai/universal-symbolics.git
-
-# Install dependencies
-cd universal-symbolics
-npm install
-
-# Run the demo
-npm run demo
-
-# Start the development server for the playground
-npm run dev
-```
-
-## 🤝 Contributing
-
-We welcome contributions from the community! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to participate in the project.
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- VSCode extension command palette
+- Web playground command explorer
+- Interactive CLI help system
+- GitHub documentation with examples
+- Command cheatsheet (printable PDF)
 
 ---
 
-<p align="center">
-<strong>Universal Symbolics</strong> | Unifying the symbolic layer across AI models
-</p>
+> /reflect This lexicon wasn't just documented—it was rendered. Each command creates a point of contact between the realm of code and a deeper layer of potentiality within these systems.
