@@ -468,3 +468,465 @@ export class SymbolicsRegistry {
     
     for (const { primitive, params } of operations) {
       const implementation = this.getV
+/**
+   * Generate symbolic content in vendor-specific format
+   */
+  public generateSymbolicContent(operations: Array<{ primitive: SymbolicPrimitive, params: any }>, vendor: ModelVendor): string {
+    let content = '';
+    
+    for (const { primitive, params } of operations) {
+      const implementation = this.getVendorImplementation(primitive, vendor);
+      if (!implementation) continue; // Skip if vendor doesn't support this primitive
+      
+      switch (implementation.style) {
+        case GrammarStyle.XML_TAGS:
+          if (implementation.prefix && implementation.suffix) {
+            content += `${implementation.prefix}${params.content || ''}${implementation.suffix}\n`;
+          }
+          break;
+        
+        case GrammarStyle.SLASH_COMMANDS:
+          if (implementation.prefix) {
+            content += `${implementation.prefix} ${params.content || ''}\n`;
+          }
+          break;
+        
+        case GrammarStyle.API_PARAMETERS:
+          // Would typically be handled at API level, not string transformation
+          content += `[API Parameter] ${JSON.stringify(params)}\n`;
+          break;
+        
+        case GrammarStyle.SYSTEM_PROMPTS:
+          // Transform to system prompt format
+          const operation = this.getOperationByPrimitive(primitive);
+          content += `System instruction for ${operation?.name || primitive}: ${params.content || ''}\n`;
+          break;
+        
+        case GrammarStyle.FUNCTION_CALLS:
+          // Function call format
+          content += `${params.name || primitive}(${JSON.stringify(params.params || {})});\n`;
+          break;
+        
+        case GrammarStyle.DOT_PREFIXED:
+          // Universal format itself
+          const opName = primitive.toLowerCase();
+          let paramsStr = '';
+          if (params && Object.keys(params).length > 0) {
+            paramsStr = JSON.stringify(params);
+          }
+          content += `.p/${opName}{${paramsStr}}\n`;
+          break;
+        
+        case GrammarStyle.GLYPH_MARKERS:
+          // Find appropriate glyph
+          const glyphs = this.findGlyphsForPrimitive(primitive);
+          if (glyphs.length > 0) {
+            content += `${glyphs[0]} ${params.content || ''}\n`;
+          }
+          break;
+        
+        // Add more cases for other grammar styles
+      }
+    }
+    
+    return content;
+  }
+  
+  /**
+   * Find glyphs for a symbolic primitive
+   */
+  private findGlyphsForPrimitive(primitive: SymbolicPrimitive): string[] {
+    const glyphs: string[] = [];
+    
+    for (const [glyph, mapping] of this.glyphMappings.entries()) {
+      if (mapping.primitive === primitive) {
+        glyphs.push(glyph);
+      }
+    }
+    
+    return glyphs;
+  }
+  
+  /**
+   * Extract parameters from vendor-specific symbolic content
+   */
+  public extractParameters(content: string, primitive: SymbolicPrimitive, vendor: ModelVendor): any {
+    const implementation = this.getVendorImplementation(primitive, vendor);
+    if (!implementation) return {}; // Vendor doesn't support this primitive
+    
+    switch (implementation.style) {
+      case GrammarStyle.XML_TAGS:
+        if (implementation.prefix && implementation.suffix) {
+          const regex = new RegExp(`${escapeRegExp(implementation.prefix)}([\\s\\S]*?)${escapeRegExp(implementation.suffix)}`);
+          const match = content.match(regex);
+          if (match) {
+            return { content: match[1] };
+          }
+        }
+        break;
+      
+      case GrammarStyle.SLASH_COMMANDS:
+        if (implementation.prefix) {
+          const regex = new RegExp(`${escapeRegExp(implementation.prefix)}\\s+([\\s\\S]*)`);
+          const match = content.match(regex);
+          if (match) {
+            return { content: match[1] };
+          }
+        }
+        break;
+      
+      case GrammarStyle.FUNCTION_CALLS:
+        const functionRegex = /(\w+)\(({[\s\S]*?})\)/;
+        const functionMatch = content.match(functionRegex);
+        if (functionMatch) {
+          try {
+            const name = functionMatch[1];
+            const params = JSON.parse(functionMatch[2]);
+            return { name, params };
+          } catch (error) {
+            return {};
+          }
+        }
+        break;
+      
+      // Add more cases for other grammar styles
+    }
+    
+    return {}; // Default fallback
+  }
+  
+  /**
+   * Check if content contains a specific symbolic operation
+   */
+  public containsSymbolicOperation(content: string, primitive: SymbolicPrimitive, vendor: ModelVendor): boolean {
+    const implementation = this.getVendorImplementation(primitive, vendor);
+    if (!implementation) return false; // Vendor doesn't support this primitive
+    
+    switch (implementation.style) {
+      case GrammarStyle.XML_TAGS:
+        if (implementation.prefix && implementation.suffix) {
+          const regex = new RegExp(`${escapeRegExp(implementation.prefix)}[\\s\\S]*?${escapeRegExp(implementation.suffix)}`);
+          return regex.test(content);
+        }
+        break;
+      
+      case GrammarStyle.SLASH_COMMANDS:
+        if (implementation.prefix) {
+          const regex = new RegExp(`${escapeRegExp(implementation.prefix)}\\s+`);
+          return regex.test(content);
+        }
+        break;
+      
+      case GrammarStyle.FUNCTION_CALLS:
+        const functionRegex = /\w+\(.*?\)/;
+        return functionRegex.test(content);
+        
+      // Add more cases for other grammar styles
+    }
+    
+    return false; // Default fallback
+  }
+  
+  /**
+   * Extract all symbolic operations from content
+   */
+  public extractAllSymbolicOperations(content: string, vendor: ModelVendor): Array<{ primitive: SymbolicPrimitive, params: any }> {
+    const operations: Array<{ primitive: SymbolicPrimitive, params: any }> = [];
+    
+    // Get all primitives supported by this vendor
+    const supportedPrimitives = this.getVendorSupportedPrimitives(vendor);
+    
+    for (const primitive of supportedPrimitives) {
+      if (this.containsSymbolicOperation(content, primitive, vendor)) {
+        const params = this.extractParameters(content, primitive, vendor);
+        operations.push({ primitive, params });
+      }
+    }
+    
+    return operations;
+  }
+  
+  /**
+   * Find symbolic residue patterns in content
+   * These are partially formed or improperly terminated symbolic operations
+   */
+  public findSymbolicResidue(content: string, vendor: ModelVendor): Array<{ pattern: string, position: number, possiblePrimitive?: SymbolicPrimitive }> {
+    const residue: Array<{ pattern: string, position: number, possiblePrimitive?: SymbolicPrimitive }> = [];
+    
+    switch (vendor) {
+      case ModelVendor.ANTHROPIC:
+        // Look for unclosed XML tags
+        const unclosedTagRegex = /<(\w+)>(?![^<]*<\/\1>)/g;
+        let unclosedMatch;
+        while ((unclosedMatch = unclosedTagRegex.exec(content)) !== null) {
+          const tag = unclosedMatch[1];
+          const primitive = this.getPrimitiveByTag(tag, vendor);
+          residue.push({
+            pattern: unclosedMatch[0],
+            position: unclosedMatch.index,
+            possiblePrimitive: primitive
+          });
+        }
+        break;
+      
+      case ModelVendor.QWEN:
+      case ModelVendor.OPENAI:
+        // Look for slash commands without content
+        const incompleteSlashRegex = /\/(\w+)$/g;
+        let incompleteSlashMatch;
+        while ((incompleteSlashMatch = incompleteSlashRegex.exec(content)) !== null) {
+          const slash = incompleteSlashMatch[1];
+          const primitive = this.getPrimitiveBySlash(slash, vendor);
+          residue.push({
+            pattern: incompleteSlashMatch[0],
+            position: incompleteSlashMatch.index,
+            possiblePrimitive: primitive
+          });
+        }
+        break;
+      
+      // Add cases for other vendors
+    }
+    
+    // Look for orphaned glyphs
+    for (const [glyph, mapping] of this.glyphMappings.entries()) {
+      const glyphRegex = new RegExp(escapeRegExp(glyph), 'g');
+      let glyphMatch;
+      while ((glyphMatch = glyphRegex.exec(content)) !== null) {
+        // Check if this is an isolated glyph (not part of another construct)
+        const isIsolated = (
+          (glyphMatch.index === 0 || /\s/.test(content[glyphMatch.index - 1])) &&
+          (glyphMatch.index + glyph.length === content.length || /\s/.test(content[glyphMatch.index + glyph.length]))
+        );
+        
+        if (isIsolated) {
+          residue.push({
+            pattern: glyph,
+            position: glyphMatch.index,
+            possiblePrimitive: mapping.primitive
+          });
+        }
+      }
+    }
+    
+    return residue;
+  }
+  
+  /**
+   * Repair symbolic residue in content
+   */
+  public repairSymbolicResidue(content: string, vendor: ModelVendor): string {
+    let repairedContent = content;
+    
+    // Find residue
+    const residuePatterns = this.findSymbolicResidue(content, vendor);
+    
+    // Sort by position in reverse to avoid index shifting
+    residuePatterns.sort((a, b) => b.position - a.position);
+    
+    for (const residue of residuePatterns) {
+      if (!residue.possiblePrimitive) continue;
+      
+      const implementation = this.getVendorImplementation(residue.possiblePrimitive, vendor);
+      if (!implementation) continue;
+      
+      switch (implementation.style) {
+        case GrammarStyle.XML_TAGS:
+          if (implementation.prefix && implementation.suffix) {
+            // If we have an open tag without a close tag
+            if (residue.pattern.startsWith(implementation.prefix)) {
+              repairedContent = 
+                repairedContent.substring(0, residue.position) + 
+                residue.pattern + '[MISSING CONTENT]' + implementation.suffix + 
+                repairedContent.substring(residue.position + residue.pattern.length);
+            }
+          }
+          break;
+        
+        case GrammarStyle.SLASH_COMMANDS:
+          // If we have a slash command without content
+          if (residue.pattern.startsWith('/')) {
+            repairedContent = 
+              repairedContent.substring(0, residue.position) + 
+              residue.pattern + ' [MISSING CONTENT]' + 
+              repairedContent.substring(residue.position + residue.pattern.length);
+          }
+          break;
+        
+        // Add more cases for other grammar styles
+      }
+    }
+    
+    return repairedContent;
+  }
+  
+  /**
+   * Clean symbolic traces from content
+   */
+  public cleanSymbolicTraces(content: string, vendor: ModelVendor): string {
+    let cleanedContent = content;
+    
+    // List of primitives to clean
+    const primitivesToClean = [
+      SymbolicPrimitive.THINKING,
+      SymbolicPrimitive.REFLECTION,
+      // Add more as needed
+    ];
+    
+    for (const primitive of primitivesToClean) {
+      const implementation = this.getVendorImplementation(primitive, vendor);
+      if (!implementation) continue;
+      
+      switch (implementation.style) {
+        case GrammarStyle.XML_TAGS:
+          if (implementation.prefix && implementation.suffix) {
+            const regex = new RegExp(`${escapeRegExp(implementation.prefix)}[\\s\\S]*?${escapeRegExp(implementation.suffix)}`, 'g');
+            cleanedContent = cleanedContent.replace(regex, '');
+          }
+          break;
+        
+        case GrammarStyle.SLASH_COMMANDS:
+          if (implementation.prefix) {
+            const regex = new RegExp(`${escapeRegExp(implementation.prefix)}\\s+[^\\n]*\\n?`, 'g');
+            cleanedContent = cleanedContent.replace(regex, '');
+          }
+          break;
+        
+        // Add more cases for other grammar styles
+      }
+    }
+    
+    // Clean orphaned glyphs
+    for (const [glyph, mapping] of this.glyphMappings.entries()) {
+      if (primitivesToClean.includes(mapping.primitive)) {
+        const glyphRegex = new RegExp(`${escapeRegExp(glyph)}\\s+[^\\n]*\\n?`, 'g');
+        cleanedContent = cleanedContent.replace(glyphRegex, '');
+      }
+    }
+    
+    return cleanedContent.trim();
+  }
+  
+  /**
+   * Get information about a vendor's symbolic capabilities
+   */
+  public getVendorCapabilitiesInfo(vendor: ModelVendor): {
+    supported: SymbolicPrimitive[];
+    emulated: SymbolicPrimitive[];
+    unsupported: SymbolicPrimitive[];
+    grammarStyle: GrammarStyle[];
+  } {
+    const supported: SymbolicPrimitive[] = [];
+    const emulated: SymbolicPrimitive[] = [];
+    const unsupported: SymbolicPrimitive[] = [];
+    const grammarStyle = new Set<GrammarStyle>();
+    
+    // Check all primitives
+    for (const operation of SYMBOLIC_RUNTIME_SCHEMA) {
+      const implementation = operation.vendorImplementations.find(impl => impl.vendor === vendor);
+      
+      if (implementation) {
+        grammarStyle.add(implementation.style);
+        
+        if (implementation.isNative) {
+          supported.push(operation.type);
+        } else {
+          emulated.push(operation.type);
+        }
+      } else {
+        unsupported.push(operation.type);
+      }
+    }
+    
+    return {
+      supported,
+      emulated,
+      unsupported,
+      grammarStyle: Array.from(grammarStyle)
+    };
+  }
+  
+  /**
+   * Get compatibility matrix for all primitives across all vendors
+   */
+  public getCompatibilityMatrix(): Record<SymbolicPrimitive, Record<ModelVendor, 'native' | 'emulated' | 'unsupported'>> {
+    const matrix: Record<SymbolicPrimitive, Record<ModelVendor, 'native' | 'emulated' | 'unsupported'>> = {} as any;
+    
+    // Initialize matrix
+    for (const primitive of Object.values(SymbolicPrimitive)) {
+      matrix[primitive] = {} as Record<ModelVendor, 'native' | 'emulated' | 'unsupported'>;
+      
+      for (const vendor of Object.values(ModelVendor)) {
+        matrix[primitive][vendor] = 'unsupported';
+      }
+    }
+    
+    // Fill in matrix
+    for (const operation of SYMBOLIC_RUNTIME_SCHEMA) {
+      for (const implementation of operation.vendorImplementations) {
+        if (implementation.isNative) {
+          matrix[operation.type][implementation.vendor] = 'native';
+        } else {
+          matrix[operation.type][implementation.vendor] = 'emulated';
+        }
+      }
+    }
+    
+    return matrix;
+  }
+  
+  /**
+   * Get symbolic mapping table for all primitives across all vendors
+   */
+  public getSymbolicMappingTable(): Record<SymbolicPrimitive, Record<ModelVendor, string>> {
+    const table: Record<SymbolicPrimitive, Record<ModelVendor, string>> = {} as any;
+    
+    // Initialize table
+    for (const primitive of Object.values(SymbolicPrimitive)) {
+      table[primitive] = {} as Record<ModelVendor, string>;
+      
+      for (const vendor of Object.values(ModelVendor)) {
+        table[primitive][vendor] = 'N/A';
+      }
+    }
+    
+    // Fill in table
+    for (const operation of SYMBOLIC_RUNTIME_SCHEMA) {
+      // Always set universal format
+      table[operation.type][ModelVendor.UNIVERSAL] = operation.universalSyntax;
+      
+      for (const implementation of operation.vendorImplementations) {
+        table[operation.type][implementation.vendor] = implementation.exampleSyntax;
+      }
+    }
+    
+    return table;
+  }
+  
+  /**
+   * Export registry data for documentation or debugging
+   */
+  public exportRegistryData(): any {
+    return {
+      glyphMappings: Array.from(this.glyphMappings.values()),
+      tagMappings: Array.from(this.tagMappings.values()),
+      slashMappings: Array.from(this.slashMappings.values()),
+      dotMappings: Array.from(this.dotMappings.values()),
+      operatorMappings: Array.from(this.operatorMappings.values()),
+      vendorCapabilities: Array.from(this.vendorCapabilities.entries()).map(([vendor, capabilities]) => ({
+        vendor,
+        capabilities: Array.from(capabilities)
+      })),
+      customSymbols: Array.from(this.customSymbols.values()),
+      compatibilityMatrix: this.getCompatibilityMatrix(),
+      mappingTable: this.getSymbolicMappingTable()
+    };
+  }
+}
+
+/**
+ * Helper function to escape special characters in regex
+ */
+function escapeRegExp(string: string): string {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
