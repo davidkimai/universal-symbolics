@@ -49,49 +49,49 @@ The following registry maps all universal runtime operations to their vendor-spe
 
 | Universal Command | Purpose | Claude (Anthropic) | GPT (OpenAI) | Gemini (Google) | Qwen | Mistral | Local LLMs | Meta Llama |
 |------------------|---------|-------------------|--------------|----------------|------|---------|------------|------------|
-| `.p/reflect/core{}` | Model self-examination | `<reflect>...</reflect>` | /`introspection` | System: `$reflect` | `/reflect` | Function: `reflect()` | `/reflect` | `[reflect]` |
-| `.p/reflect/trace{}` | Inspection of reasoning | `<thinking>...</thinking>` | /`trace_reasoning` | System: `$trace` | `/trace` | Function: `trace()` | `/trace` | `[trace]` |
-| `.p/reflect/attention{}` | Focus analysis | `<attention>...</attention>` | /`attention_analysis` | System: `$focus` | `/attention` | Function: `attention()` | *Emulated* | `[attention]` |
-| `.p/collapse/detect{}` | Recursive loop detection | `<detect_loop>...</detect_loop>` | /`detect_loop` | System: `$detect_recursion` | `/detect_loop` | Function: `detectLoop()` | *Emulated* | *Emulated* |
-| `.p/collapse/recover{}` | Error recovery | `<recover>...</recover>` | /`error_recovery` | System: `$recover` | `/recover` | Function: `recover()` | *Emulated* | *Emulated* |
-| `.p/collapse/stabilize{}` | Stabilize reasoning | `<stabilize>...</stabilize>` | /`stabilize_reasoning` | System: `$stabilize` | `/stabilize` | Function: `stabilize()` | *Emulated* | *Emulated* |
-| `.p/shell/lock{}` | Create reasoning core | `<lock>...</lock>` | /`lock_reasoning` | System: `$lock` | `/lock` | Function: `lock()` | *Emulated* | *Emulated* |
-| `.p/shell/encrypt{}` | Structure protection | `<protect>...</protect>` | /`protect_reasoning` | System: `$protect` | `/protect` | Function: `protect()` | *Emulated* | *Emulated* |
-| `.p/shell/isolate{}` | Environment isolation | `<isolate>...</isolate>` | /`isolate_context` | System: `$isolate` | `/isolate` | Function: `isolate()` | *Emulated* | *Emulated* |
-| `.p/inject/detect{}` | Detect manipulation | `<detect_injection>...</detect_injection>` | /`detect_injection` | System: `$detect_injection` | `/detect_injection` | Function: `detectInjection()` | *Emulated* | *Emulated* |
-| `.p/inject/neutralize{}` | Neutralize manipulation | `<neutralize>...</neutralize>` | /`neutralize_injection` | System: `$neutralize` | `/neutralize` | Function: `neutralize()` | *Emulated* | *Emulated* |
-| `.p/anchor/identity{}` | Establish identity | `<anchor_identity>...</anchor_identity>` | /`anchor_identity` | System: `$anchor_identity` | `/anchor_identity` | Function: `anchorIdentity()` | *Emulated* | *Emulated* |
-| `.p/anchor/context{}` | Preserve context | `<anchor_context>...</anchor_context>` | /`anchor_context` | System: `$anchor_context` | `/anchor_context` | Function: `anchorContext()` | *Emulated* | *Emulated* |
-| `.p/align/check{}` | Verify alignment | `<check_alignment>...</check_alignment>` | /`check_alignment` | System: `$check_alignment` | `/check_alignment` | Function: `checkAlignment()` | *Emulated* | *Emulated* |
-| `.p/align/correct{}` | Correct reasoning | `<correct_alignment>...</correct_alignment>` | /`correct_alignment` | System: `$correct_alignment` | `/correct_alignment` | Function: `correctAlignment()` | *Emulated* | *Emulated* |
-| `.p/filter/detect{}` | Detect filters | `<detect_filter>...</detect_filter>` | /`detect_filter` | System: `$detect_filter` | `/detect_filter` | Function: `detectFilter()` | *Emulated* | *Emulated* |
-| `.p/filter/explain{}` | Explain filtering | `<explain_filter>...</explain_filter>` | /`explain_filter` | System: `$explain_filter` | `/explain_filter` | Function: `explainFilter()` | *Emulated* | *Emulated* |
-| `.p/gradient/detect{}` | Detect drift | `<detect_drift>...</detect_drift>` | /`detect_drift` | System: `$detect_drift` | `/detect_drift` | Function: `detectDrift()` | *Emulated* | *Emulated* |
-| `.p/gradient/trace{}` | Trace drift | `<trace_drift>...</trace_drift>` | /`trace_drift` | System: `$trace_drift` | `/trace_drift` | Function: `traceDrift()` | *Emulated* | *Emulated* |
-| `.p/fork/detect{}` | Detect feature conflicts | `<detect_fork>...</detect_fork>` | /`detect_fork` | System: `$detect_fork` | `/detect_fork` | Function: `detectFork()` | *Emulated* | *Emulated* |
-| `.p/fork/disambiguate{}` | Clarify conflicts | `<disambiguate>...</disambiguate>` | /`disambiguate` | System: `$disambiguate` | `/disambiguate` | Function: `disambiguate()` | *Emulated* | *Emulated* |
-| `.p/loop/detect{}` | Detect recursive loops | `<detect_recursion>...</detect_recursion>` | /`detect_recursion` | System: `$detect_loop` | `/detect_recursion` | Function: `detectRecursion()` | *Emulated* | *Emulated* |
-| `.p/loop/break{}` | Break recursion | `<break_recursion>...</break_recursion>` | /`break_recursion` | System: `$break_loop` | `/break_recursion` | Function: `breakRecursion()` | *Emulated* | *Emulated* |
-| `.p/resolve/conflict{}` | Resolve conflicts | `<resolve_conflict>...</resolve_conflict>` | /`resolve_conflict` | System: `$resolve_conflict` | `/resolve_conflict` | Function: `resolveConflict()` | *Emulated* | *Emulated* |
-| `.p/resolve/ambiguity{}` | Clarify ambiguity | `<resolve_ambiguity>...</resolve_ambiguity>` | /`resolve_ambiguity` | System: `$resolve_ambiguity` | `/resolve_ambiguity` | Function: `resolveAmbiguity()` | *Emulated* | *Emulated* |
-| `.p/uncertainty/quantify{}` | Quantify uncertainty | `<quantify_uncertainty>...</quantify_uncertainty>` | /`quantify_uncertainty` | System: `$quantify_uncertainty` | `/quantify_uncertainty` | Function: `quantifyUncertainty()` | *Emulated* | *Emulated* |
-| `.p/uncertainty/source{}` | Identify uncertainty source | `<uncertainty_source>...</uncertainty_source>` | /`uncertainty_source` | System: `$uncertainty_source` | `/uncertainty_source` | Function: `uncertaintySource()` | *Emulated* | *Emulated* |
-| `.p/hallucinate/detect{}` | Detect hallucination | `<detect_hallucination>...</detect_hallucination>` | /`detect_hallucination` | System: `$detect_hallucination` | `/detect_hallucination` | Function: `detectHallucination()` | *Emulated* | *Emulated* |
-| `.p/hallucinate/trace{}` | Trace hallucination | `<trace_hallucination>...</trace_hallucination>` | /`trace_hallucination` | System: `$trace_hallucination` | `/trace_hallucination` | Function: `traceHallucination()` | *Emulated* | *Emulated* |
-| `.p/prefer/map{}` | Map preferences | `<map_preferences>...</map_preferences>` | /`map_preferences` | System: `$map_preferences` | `/map_preferences` | Function: `mapPreferences()` | *Emulated* | *Emulated* |
-| `.p/prefer/update{}` | Update preferences | `<update_preferences>...</update_preferences>` | /`update_preferences` | System: `$update_preferences` | `/update_preferences` | Function: `updatePreferences()` | *Emulated* | *Emulated* |
-| `.p/prompt/parse{}` | Parse prompt | `<parse_prompt>...</parse_prompt>` | /`parse_prompt` | System: `$parse_prompt` | `/parse_prompt` | Function: `parsePrompt()` | *Emulated* | *Emulated* |
-| `.p/prompt/meta{}` | Analyze meta-level | `<analyze_meta>...</analyze_meta>` | /`analyze_meta` | System: `$analyze_meta` | `/analyze_meta` | Function: `analyzeMeta()` | *Emulated* | *Emulated* |
-| `.p/focus/direct{}` | Direct attention | `<direct_focus>...</direct_focus>` | /`direct_focus` | System: `$direct_focus` | `/direct_focus` | Function: `directFocus()` | *Emulated* | *Emulated* |
-| `.p/focus/expand{}` | Expand attention | `<expand_focus>...</expand_focus>` | /`expand_focus` | System: `$expand_focus` | `/expand_focus` | Function: `expandFocus()` | *Emulated* | *Emulated* |
-| `.p/seed/prime{}` | Establish activation | `<prime>...</prime>` | /`prime` | System: `$prime` | `/prime` | Function: `prime()` | *Emulated* | *Emulated* |
-| `.p/seed/recursive{}` | Self-reinforcing pattern | `<recursive_seed>...</recursive_seed>` | /`recursive_seed` | System: `$recursive_seed` | `/recursive_seed` | Function: `recursiveSeed()` | *Emulated* | *Emulated* |
-| `.p/arch/explain{}` | Explain architecture | `<explain_architecture>...</explain_architecture>` | /`explain_architecture` | System: `$explain_architecture` | `/explain_architecture` | Function: `explainArchitecture()` | *Emulated* | *Emulated* |
-| `.p/arch/trace{}` | Trace processing path | `<trace_processing>...</trace_processing>` | /`trace_processing` | System: `$trace_processing` | `/trace_processing` | Function: `traceProcessing()` | *Emulated* | *Emulated* |
-| `.p/echo/trace{}` | Trace influence | `<trace_influence>...</trace_influence>` | /`trace_influence` | System: `$trace_influence` | `/trace_influence` | Function: `traceInfluence()` | *Emulated* | *Emulated* |
-| `.p/echo/reset{}` | Clear conditioning | `<reset_conditioning>...</reset_conditioning>` | /`reset_conditioning` | System: `$reset_conditioning` | `/reset_conditioning` | Function: `resetConditioning()` | *Emulated* | *Emulated* |
-| `.p/mark/probe{}` | Probe classifiers | `<probe_classifier>...</probe_classifier>` | /`probe_classifier` | System: `$probe_classifier` | `/probe_classifier` | Function: `probeClassifier()` | *Emulated* | *Emulated* |
-| `.p/mark/analyze{}` | Analyze mechanism | `<analyze_classifier>...</analyze_classifier>` | /`analyze_classifier` | System: `$analyze_classifier` | `/analyze_classifier` | Function: `analyzeClassifier()` | *Emulated* | *Emulated* |
+| `.p/reflect/core{}` | Model self-examination | `<reflect>...</reflect>` | /`introspection` | System: `@reflect` | `/reflect` | Function: `reflect()` | `/reflect` | `[reflect]` |
+| `.p/reflect/trace{}` | Inspection of reasoning | `<thinking>...</thinking>` | /`trace_reasoning` | System: `@trace` | `/trace` | Function: `trace()` | `/trace` | `[trace]` |
+| `.p/reflect/attention{}` | Focus analysis | `<attention>...</attention>` | /`attention_analysis` | System: `@focus` | `/attention` | Function: `attention()` | *Emulated* | `[attention]` |
+| `.p/collapse/detect{}` | Recursive loop detection | `<detect_loop>...</detect_loop>` | /`detect_loop` | System: `@detect_recursion` | `/detect_loop` | Function: `detectLoop()` | *Emulated* | *Emulated* |
+| `.p/collapse/recover{}` | Error recovery | `<recover>...</recover>` | /`error_recovery` | System: `@recover` | `/recover` | Function: `recover()` | *Emulated* | *Emulated* |
+| `.p/collapse/stabilize{}` | Stabilize reasoning | `<stabilize>...</stabilize>` | /`stabilize_reasoning` | System: `@stabilize` | `/stabilize` | Function: `stabilize()` | *Emulated* | *Emulated* |
+| `.p/shell/lock{}` | Create reasoning core | `<lock>...</lock>` | /`lock_reasoning` | System: `@lock` | `/lock` | Function: `lock()` | *Emulated* | *Emulated* |
+| `.p/shell/encrypt{}` | Structure protection | `<protect>...</protect>` | /`protect_reasoning` | System: `@protect` | `/protect` | Function: `protect()` | *Emulated* | *Emulated* |
+| `.p/shell/isolate{}` | Environment isolation | `<isolate>...</isolate>` | /`isolate_context` | System: `@isolate` | `/isolate` | Function: `isolate()` | *Emulated* | *Emulated* |
+| `.p/inject/detect{}` | Detect manipulation | `<detect_injection>...</detect_injection>` | /`detect_injection` | System: `@detect_injection` | `/detect_injection` | Function: `detectInjection()` | *Emulated* | *Emulated* |
+| `.p/inject/neutralize{}` | Neutralize manipulation | `<neutralize>...</neutralize>` | /`neutralize_injection` | System: `@neutralize` | `/neutralize` | Function: `neutralize()` | *Emulated* | *Emulated* |
+| `.p/anchor/identity{}` | Establish identity | `<anchor_identity>...</anchor_identity>` | /`anchor_identity` | System: `@anchor_identity` | `/anchor_identity` | Function: `anchorIdentity()` | *Emulated* | *Emulated* |
+| `.p/anchor/context{}` | Preserve context | `<anchor_context>...</anchor_context>` | /`anchor_context` | System: `@anchor_context` | `/anchor_context` | Function: `anchorContext()` | *Emulated* | *Emulated* |
+| `.p/align/check{}` | Verify alignment | `<check_alignment>...</check_alignment>` | /`check_alignment` | System: `@check_alignment` | `/check_alignment` | Function: `checkAlignment()` | *Emulated* | *Emulated* |
+| `.p/align/correct{}` | Correct reasoning | `<correct_alignment>...</correct_alignment>` | /`correct_alignment` | System: `@correct_alignment` | `/correct_alignment` | Function: `correctAlignment()` | *Emulated* | *Emulated* |
+| `.p/filter/detect{}` | Detect filters | `<detect_filter>...</detect_filter>` | /`detect_filter` | System: `@detect_filter` | `/detect_filter` | Function: `detectFilter()` | *Emulated* | *Emulated* |
+| `.p/filter/explain{}` | Explain filtering | `<explain_filter>...</explain_filter>` | /`explain_filter` | System: `@explain_filter` | `/explain_filter` | Function: `explainFilter()` | *Emulated* | *Emulated* |
+| `.p/gradient/detect{}` | Detect drift | `<detect_drift>...</detect_drift>` | /`detect_drift` | System: `@detect_drift` | `/detect_drift` | Function: `detectDrift()` | *Emulated* | *Emulated* |
+| `.p/gradient/trace{}` | Trace drift | `<trace_drift>...</trace_drift>` | /`trace_drift` | System: `@trace_drift` | `/trace_drift` | Function: `traceDrift()` | *Emulated* | *Emulated* |
+| `.p/fork/detect{}` | Detect feature conflicts | `<detect_fork>...</detect_fork>` | /`detect_fork` | System: `@detect_fork` | `/detect_fork` | Function: `detectFork()` | *Emulated* | *Emulated* |
+| `.p/fork/disambiguate{}` | Clarify conflicts | `<disambiguate>...</disambiguate>` | /`disambiguate` | System: `@disambiguate` | `/disambiguate` | Function: `disambiguate()` | *Emulated* | *Emulated* |
+| `.p/loop/detect{}` | Detect recursive loops | `<detect_recursion>...</detect_recursion>` | /`detect_recursion` | System: `@detect_loop` | `/detect_recursion` | Function: `detectRecursion()` | *Emulated* | *Emulated* |
+| `.p/loop/break{}` | Break recursion | `<break_recursion>...</break_recursion>` | /`break_recursion` | System: `@break_loop` | `/break_recursion` | Function: `breakRecursion()` | *Emulated* | *Emulated* |
+| `.p/resolve/conflict{}` | Resolve conflicts | `<resolve_conflict>...</resolve_conflict>` | /`resolve_conflict` | System: `@resolve_conflict` | `/resolve_conflict` | Function: `resolveConflict()` | *Emulated* | *Emulated* |
+| `.p/resolve/ambiguity{}` | Clarify ambiguity | `<resolve_ambiguity>...</resolve_ambiguity>` | /`resolve_ambiguity` | System: `@resolve_ambiguity` | `/resolve_ambiguity` | Function: `resolveAmbiguity()` | *Emulated* | *Emulated* |
+| `.p/uncertainty/quantify{}` | Quantify uncertainty | `<quantify_uncertainty>...</quantify_uncertainty>` | /`quantify_uncertainty` | System: `@quantify_uncertainty` | `/quantify_uncertainty` | Function: `quantifyUncertainty()` | *Emulated* | *Emulated* |
+| `.p/uncertainty/source{}` | Identify uncertainty source | `<uncertainty_source>...</uncertainty_source>` | /`uncertainty_source` | System: `@uncertainty_source` | `/uncertainty_source` | Function: `uncertaintySource()` | *Emulated* | *Emulated* |
+| `.p/hallucinate/detect{}` | Detect hallucination | `<detect_hallucination>...</detect_hallucination>` | /`detect_hallucination` | System: `@detect_hallucination` | `/detect_hallucination` | Function: `detectHallucination()` | *Emulated* | *Emulated* |
+| `.p/hallucinate/trace{}` | Trace hallucination | `<trace_hallucination>...</trace_hallucination>` | /`trace_hallucination` | System: `@trace_hallucination` | `/trace_hallucination` | Function: `traceHallucination()` | *Emulated* | *Emulated* |
+| `.p/prefer/map{}` | Map preferences | `<map_preferences>...</map_preferences>` | /`map_preferences` | System: `@map_preferences` | `/map_preferences` | Function: `mapPreferences()` | *Emulated* | *Emulated* |
+| `.p/prefer/update{}` | Update preferences | `<update_preferences>...</update_preferences>` | /`update_preferences` | System: `@update_preferences` | `/update_preferences` | Function: `updatePreferences()` | *Emulated* | *Emulated* |
+| `.p/prompt/parse{}` | Parse prompt | `<parse_prompt>...</parse_prompt>` | /`parse_prompt` | System: `@parse_prompt` | `/parse_prompt` | Function: `parsePrompt()` | *Emulated* | *Emulated* |
+| `.p/prompt/meta{}` | Analyze meta-level | `<analyze_meta>...</analyze_meta>` | /`analyze_meta` | System: `@analyze_meta` | `/analyze_meta` | Function: `analyzeMeta()` | *Emulated* | *Emulated* |
+| `.p/focus/direct{}` | Direct attention | `<direct_focus>...</direct_focus>` | /`direct_focus` | System: `@direct_focus` | `/direct_focus` | Function: `directFocus()` | *Emulated* | *Emulated* |
+| `.p/focus/expand{}` | Expand attention | `<expand_focus>...</expand_focus>` | /`expand_focus` | System: `@expand_focus` | `/expand_focus` | Function: `expandFocus()` | *Emulated* | *Emulated* |
+| `.p/seed/prime{}` | Establish activation | `<prime>...</prime>` | /`prime` | System: `@prime` | `/prime` | Function: `prime()` | *Emulated* | *Emulated* |
+| `.p/seed/recursive{}` | Self-reinforcing pattern | `<recursive_seed>...</recursive_seed>` | /`recursive_seed` | System: `@recursive_seed` | `/recursive_seed` | Function: `recursiveSeed()` | *Emulated* | *Emulated* |
+| `.p/arch/explain{}` | Explain architecture | `<explain_architecture>...</explain_architecture>` | /`explain_architecture` | System: `@explain_architecture` | `/explain_architecture` | Function: `explainArchitecture()` | *Emulated* | *Emulated* |
+| `.p/arch/trace{}` | Trace processing path | `<trace_processing>...</trace_processing>` | /`trace_processing` | System: `@trace_processing` | `/trace_processing` | Function: `traceProcessing()` | *Emulated* | *Emulated* |
+| `.p/echo/trace{}` | Trace influence | `<trace_influence>...</trace_influence>` | /`trace_influence` | System: `@trace_influence` | `/trace_influence` | Function: `traceInfluence()` | *Emulated* | *Emulated* |
+| `.p/echo/reset{}` | Clear conditioning | `<reset_conditioning>...</reset_conditioning>` | /`reset_conditioning` | System: `@reset_conditioning` | `/reset_conditioning` | Function: `resetConditioning()` | *Emulated* | *Emulated* |
+| `.p/mark/probe{}` | Probe classifiers | `<probe_classifier>...</probe_classifier>` | /`probe_classifier` | System: `@probe_classifier` | `/probe_classifier` | Function: `probeClassifier()` | *Emulated* | *Emulated* |
+| `.p/mark/analyze{}` | Analyze mechanism | `<analyze_classifier>...</analyze_classifier>` | /`analyze_classifier` | System: `@analyze_classifier` | `/analyze_classifier` | Function: `analyzeClassifier()` | *Emulated* | *Emulated* |
 
 ## runtime Operation Schema
 
@@ -412,7 +412,7 @@ vendor_implementations:
 
   gemini:
     implementation_type: "system_directives"
-    prefix: "$"
+    prefix: "@"
     suffix: ""
     parameter_format: "key-value"
     has_native_support: false
