@@ -1,4 +1,4 @@
-# Universal Symbolics Bridge
+# Universal Semiotics Bridge
 
 <div align="center">
 <h2>🜏 The Command-Glyph Rosetta Stone 🜏</h2>
@@ -67,7 +67,7 @@ The following registry provides a bidirectional mapping between command syntax a
 ## Command-Glyph Architecture Schema
 
 ```yaml
-# universal-symbolics-schema.yml
+# universal-semiotics-schema.yml
 
 command_glyph_architecture:
   version: "1.0.0"
@@ -275,7 +275,7 @@ command_glyph_architecture:
 ## Glyph-Command Translation Functions
 
 ```typescript
-// Universal Symbolics Translation Library
+// Universal semiotics Translation Library
 
 /**
  * Convert a command to its corresponding command glyph
@@ -427,10 +427,10 @@ function parseAndConvertCommands(input: string, targetFormat: string): string {
 
 ## Runtime Adapter Architecture
 
-The Universal Symbolics Bridge provides a runtime adapter architecture that enables seamless integration across all LLM platforms:
+The Universal semiotics Bridge provides a runtime adapter architecture that enables seamless integration across all LLM platforms:
 
 ```typescript
-// Universal Symbolics Runtime Adapter
+// Universal semiotics Runtime Adapter
 
 interface SymbolicRuntime {
   // Core Translation Methods
