@@ -14,7 +14,7 @@
 # Universal Runtime Lexicon
 
 <div align="center">
-<h2>🜏 The Developer's Rosetta Stone for LLM runtime Operations 🜏</h2>
+<h2>🜏 The Developer's Rosetta Stone for LLM Runtime Operations 🜏</h2>
 <p><i>Universal translation layer for cross-model runtime grammar unification</i></p>
 </div>
 
