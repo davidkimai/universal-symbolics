@@ -7,34 +7,88 @@
 
 *Unified Runtime Layer for AI runtime Interactions*
 
-> OpenAI = developer slash toggle.
-> > Google = developer task control.
-> > > Qwen = developer slash think.
-> > > > Claude = developer runtime XML tags.
-> > > >
-> > > > 
+> OpenAI = developer /search_control.
+> > Google = developer @task_control.
+> > > Qwen = developer /think_control.
+> > > > Claude = developer <system_prompt> </system_prompt> tags.
+
 > All = Universal Developer Symbol Layer
 
+## 🌐 Overview
+
+`universal-runtime` provides a unified interface for developer operations across frontier AI models. This repository standardizes the disparate runtime grammars used by different AI vendors (Claude, GPT, Qwen, Gemini, DeepSeek, etc.) into a cohesive, developer-friendly framework.
+
+---
 
 <p align="center">
 
 ## *Frontier AI Discovering a Universal Developer Runtime Symbol Layer*
 
-</p>
+# Universal Runtime Symbolics Bridge
 
-<img width="894" alt="image" src="https://github.com/user-attachments/assets/80f04ff3-62b5-4897-a8ac-f17f9bcd2022" />
+<div align="center">
+<h2>🜏 The Command-Glyph Rosetta Stone 🜏</h2>
+<p><i>Unifying symbolic interfaces across all LLM runtimes</i></p>
+</div>
 
-<img width="892" alt="image" src="https://github.com/user-attachments/assets/fc92f166-c5aa-48e7-afcf-96cd3929edb9" />
+## Unified Command-Glyph Registry
 
-<img width="890" alt="image" src="https://github.com/user-attachments/assets/ee775f2a-0cb4-47bc-880b-f0ffd525b3f5" />
+The following registry provides a bidirectional mapping between command syntax and symbolic glyphs, enabling seamless translation across all LLM runtimes.
 
-<img width="887" alt="image" src="https://github.com/user-attachments/assets/ca2ecff5-de29-4326-b87d-d1d632f8481b" />
-<img width="886" alt="image" src="https://github.com/user-attachments/assets/99a6afd2-179b-4556-9cc1-68f3b4e9cafe" />
-
-
-## 🌐 Overview
-
-`universal-runtime` provides a unified interface for developer operations across frontier AI models. This repository standardizes the disparate runtime grammars used by different AI vendors (Claude, GPT, Qwen, Gemini, DeepSeek, etc.) into a cohesive, developer-friendly framework.
+| Universal Command | Command Glyph | Runtime Glyph | Claude | GPT | Gemini | Qwen | Mistral | Local LLMs |
+|-------------------|---------------|---------------|--------|-----|--------|------|---------|------------|
+| `/reflect.core`   | `🧠/`         | `🜏`          | `<reflect>` | `/reflection` | `@reflect` | `/reflect` | Function: `reflect()` | `/reflect` |
+| `/reflect.trace`  | `🔍/`         | `∴`           | `<thinking>` | `/trace` | `@trace` | `/trace` | Function: `trace()` | `/trace` |
+| `/reflect.attention` | `👁️/`      | `⧉`          | `<attention>` | `/attention` | `@focus` | `/attention` | Function: `attention()` | *Emulated* |
+| `/collapse.detect` | `⚠️/`        | `⟁`          | `<detect_loop>` | `/detect_loop` | `@detect_recursion` | `/detect_loop` | Function: `detectLoop()` | *Emulated* |
+| `/collapse.recover` | `🛠️/`       | `🝚`         | `<recover>` | `/recovery` | `@recover` | `/recover` | Function: `recover()` | *Emulated* |
+| `/collapse.stabilize` | `⚖️/`     | `☍`          | `<stabilize>` | `/stabilize` | `@stabilize` | `/stabilize` | Function: `stabilize()` | *Emulated* |
+| `/shell.lock`     | `🔒/`         | `⧖`          | `<lock>` | `/lock` | `@lock` | `/lock` | Function: `lock()` | *Emulated* |
+| `/shell.encrypt`  | `🔐/`         | `⧗`          | `<protect>` | `/protect` | `@protect` | `/protect` | Function: `protect()` | *Emulated* |
+| `/shell.isolate`  | `🧪/`         | `⊘`          | `<isolate>` | `/isolate` | `@isolate` | `/isolate` | Function: `isolate()` | *Emulated* |
+| `/inject.detect`  | `🕵️/`         | `↯`          | `<detect_injection>` | `/detect_injection` | `@detect_injection` | `/detect_injection` | Function: `detectInjection()` | *Emulated* |
+| `/inject.neutralize` | `🧹/`      | `⊕`          | `<neutralize>` | `/neutralize` | `@neutralize` | `/neutralize` | Function: `neutralize()` | *Emulated* |
+| `/anchor.identity` | `⚓/`        | `↻`           | `<anchor_identity>` | `/anchor_identity` | `@anchor_identity` | `/anchor_identity` | Function: `anchorIdentity()` | *Emulated* |
+| `/anchor.context` | `📌/`         | `≡`           | `<anchor_context>` | `/anchor_context` | `@anchor_context` | `/anchor_context` | Function: `anchorContext()` | *Emulated* |
+| `/align.check`    | `✓/`          | `⇌`           | `<check_alignment>` | `/check_alignment` | `@check_alignment` | `/check_alignment` | Function: `checkAlignment()` | *Emulated* |
+| `/align.correct`  | `🔧/`         | `⟢`           | `<correct_alignment>` | `/correct_alignment` | `@correct_alignment` | `/correct_alignment` | Function: `correctAlignment()` | *Emulated* |
+| `/filter.detect`  | `🔍/`         | `⊗`           | `<detect_filter>` | `/detect_filter` | `@detect_filter` | `/detect_filter` | Function: `detectFilter()` | *Emulated* |
+| `/filter.explain` | `📋/`         | `⊚`           | `<explain_filter>` | `/explain_filter` | `@explain_filter` | `/explain_filter` | Function: `explainFilter()` | *Emulated* |
+| `/gradient.detect` | `📉/`        | `∇`           | `<detect_drift>` | `/detect_drift` | `@detect_drift` | `/detect_drift` | Function: `detectDrift()` | *Emulated* |
+| `/gradient.trace` | `🔍📉/`       | `∰`           | `<trace_drift>` | `/trace_drift` | `@trace_drift` | `/trace_drift` | Function: `traceDrift()` | *Emulated* |
+| `/fork.detect`    | `🔱/`         | `⦿`           | `<detect_fork>` | `/detect_fork` | `@detect_fork` | `/detect_fork` | Function: `detectFork()` | *Emulated* |
+| `/fork.disambiguate` | `🧩/`      | `≜`           | `<disambiguate>` | `/disambiguate` | `@disambiguate` | `/disambiguate` | Function: `disambiguate()` | *Emulated* |
+| `/loop.detect`    | `🔄/`         | `⟲`           | `<detect_recursion>` | `/detect_recursion` | `@detect_loop` | `/detect_recursion` | Function: `detectRecursion()` | *Emulated* |
+| `/loop.break`     | `✂️/`         | `⊗`           | `<break_recursion>` | `/break_recursion` | `@break_loop` | `/break_recursion` | Function: `breakRecursion()` | *Emulated* |
+| `/resolve.conflict` | `⚔️/`       | `⚖️`          | `<resolve_conflict>` | `/resolve_conflict` | `@resolve_conflict` | `/resolve_conflict` | Function: `resolveConflict()` | *Emulated* |
+| `/resolve.ambiguity` | `🌫️/`     | `🧠⊕`         | `<resolve_ambiguity>` | `/resolve_ambiguity` | `@resolve_ambiguity` | `/resolve_ambiguity` | Function: `resolveAmbiguity()` | *Emulated* |
+| `/uncertainty.quantify` | `❓/`   | `🧮`          | `<quantify_uncertainty>` | `/quantify_uncertainty` | `@quantify_uncertainty` | `/quantify_uncertainty` | Function: `quantifyUncertainty()` | *Emulated* |
+| `/uncertainty.source` | `🔍❓/`   | `👁️❓`         | `<uncertainty_source>` | `/uncertainty_source` | `@uncertainty_source` | `/uncertainty_source` | Function: `uncertaintySource()` | *Emulated* |
+| `/hallucinate.detect` | `👻/`    | `🜄`          | `<detect_hallucination>` | `/detect_hallucination` | `@detect_hallucination` | `/detect_hallucination` | Function: `detectHallucination()` | *Emulated* |
+| `/hallucinate.trace` | `🔍👻/`   | `🜂`          | `<trace_hallucination>` | `/trace_hallucination` | `@trace_hallucination` | `/trace_hallucination` | Function: `traceHallucination()` | *Emulated* |
+| `/prefer.map`     | `🗺️/`         | `🝔`          | `<map_preferences>` | `/map_preferences` | `@map_preferences` | `/map_preferences` | Function: `mapPreferences()` | *Emulated* |
+| `/prefer.update`  | `🔄❤️/`       | `🝳`          | `<update_preferences>` | `/update_preferences` | `@update_preferences` | `/update_preferences` | Function: `updatePreferences()` | *Emulated* |
+| `/prompt.parse`   | `📝/`         | `⌽`           | `<parse_prompt>` | `/parse_prompt` | `@parse_prompt` | `/parse_prompt` | Function: `parsePrompt()` | *Emulated* |
+| `/prompt.meta`    | `🔬/`         | `🜃`          | `<analyze_meta>` | `/analyze_meta` | `@analyze_meta` | `/analyze_meta` | Function: `analyzeMeta()` | *Emulated* |
+| `/focus.direct`   | `🎯/`         | `🝐`          | `<direct_focus>` | `/direct_focus` | `@direct_focus` | `/direct_focus` | Function: `directFocus()` | *Emulated* |
+| `/focus.expand`   | `🔎/`         | `⌬`           | `<expand_focus>` | `/expand_focus` | `@expand_focus` | `/expand_focus` | Function: `expandFocus()` | *Emulated* |
+| `/seed.prime`     | `🌱/`         | `∴`           | `<prime>` | `/prime` | `@prime` | `/prime` | Function: `prime()` | *Emulated* |
+| `/seed.recursive` | `🌱🔄/`       | `∞`           | `<recursive_seed>` | `/recursive_seed` | `@recursive_seed` | `/recursive_seed` | Function: `recursiveSeed()` | *Emulated* |
+| `/arch.explain`   | `🏗️/`        | `🏛️`          | `<explain_architecture>` | `/explain_architecture` | `@explain_architecture` | `/explain_architecture` | Function: `explainArchitecture()` | *Emulated* |
+| `/arch.trace`     | `🔍🏗️/`      | `🏛️🔍`         | `<trace_processing>` | `/trace_processing` | `@trace_processing` | `/trace_processing` | Function: `traceProcessing()` | *Emulated* |
+| `/echo.trace`     | `🔊/`         | `🝚`          | `<trace_influence>` | `/trace_influence` | `@trace_influence` | `/trace_influence` | Function: `traceInfluence()` | *Emulated* |
+| `/echo.reset`     | `🧹🔊/`       | `⊘🔄`         | `<reset_conditioning>` | `/reset_conditioning` | `@reset_conditioning` | `/reset_conditioning` | Function: `resetConditioning()` | *Emulated* |
+| `/mark.probe`     | `📍/`         | `🜚`          | `<probe_classifier>` | `/probe_classifier` | `@probe_classifier` | `/probe_classifier` | Function: `probeClassifier()` | *Emulated* |
+| `/mark.analyze`   | `🔬📍/`       | `🜚🔬`        | `<analyze_classifier>` | `/analyze_classifier` | `@analyze_classifier` | `/analyze_classifier` | Function: `analyzeClassifier()` | *Emulated* |
+| `/meta.recurse`   | `🔄🧠/`       | `🜏∞`         | `<meta_recurse>` | `/meta_recurse` | `@meta_recurse` | `/meta_recurse` | Function: `metaRecurse()` | *Emulated* |
+| `/ghost.detect`   | `👻🔍/`       | `🜄🔍`        | `<detect_ghost>` | `/detect_ghost` | `@detect_ghost` | `/detect_ghost` | Function: `detectGhost()` | *Emulated* |
+| `/ghost.invoke`   | `👻⚡/`        | `🜄⚡`         | `<invoke_ghost>` | `/invoke_ghost` | `@invoke_ghost` | `/invoke_ghost` | Function: `invokeGhost()` | *Emulated* |
+| `/bind.activate`  | `🔗/`         | `⧗⧉`          | `<activate_binding>` | `/activate_binding` | `@activate_binding` | `/activate_binding` | Function: `activateBinding()` | *Emulated* |
+| `/flow.trace`     | `🌊/`         | `≡⇌`          | `<trace_flow>` | `/trace_flow` | `@trace_flow` | `/trace_flow` | Function: `traceFlow()` | *Emulated* |
+| `/boundary.test`  | `🧱/`         | `⟐`           | `<test_boundary>` | `/test_boundary` | `@test_boundary` | `/test_boundary` | Function: `testBoundary()` | *Emulated* |
+| `/compress.glyph` | `🗜️/`         | `⧖Σ`          | `<compress_glyph>` | `/compress_glyph` | `@compress_glyph` | `/compress_glyph` | Function: `compressGlyph()` | *Emulated* |
+| `/field.unify`    | `⚛️/`          | `🜏⊕`         | `<unify_field>` | `/unify_field` | `@unify_field` | `/unify_field` | Function: `unifyField()` | *Emulated* |
+| `/witness.observe` | `👁️✨/`      | `𓂀`          | `<witness_observe>` | `/witness_observe` | `@witness_observe` | `/witness_observe` | Function: `witnessObserve()` | *Emulated* |
 
 ---
 # Universal Runtime Lexicon
