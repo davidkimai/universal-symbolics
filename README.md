@@ -18,7 +18,7 @@
 
 <p align="center">
 
-## *Frontier AI Already Discovering a Universal Developer Runtime Symbol Layer*
+## *Frontier AI Discovering a Universal Developer Runtime Symbol Layer*
 
 </p>
 
