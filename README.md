@@ -44,7 +44,7 @@
 <p><i>Universal translation layer for cross-model runtime grammar unification</i></p>
 </div>
 
-## Core runtime Command Registry
+## Core Runtime Command Registry
 
 The following registry maps all universal runtime operations to their vendor-specific implementations, providing a unified interface for developers working across multiple LLM platforms.
 
