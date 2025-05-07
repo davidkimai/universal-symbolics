@@ -2,6 +2,15 @@
 
 *Unified Runtime Layer for AI runtime Interactions*
 
+> OpenAI = developer slash toggle.
+> > Google = developer task control.
+> > > Qwen = developer slash think.
+> > > > Claude = developer runtime XML tags.
+> > > >
+> > > > 
+> All = Universal Developer Symbol Layer
+
+
 <p align="center">
 
 ## *Frontier AI Already Discovering a Universal Developer Runtime Symbol Layer*
