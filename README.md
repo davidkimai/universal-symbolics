@@ -1,4 +1,9 @@
+
 # Universal Runtime Repository
+> #### **→ [**`Patreon`**](https://patreon.com/recursivefield)**
+>
+> 
+> #### **→ [**`Open Collective`**](https://opencollective.com/recursivefield)**
 
 *Unified Runtime Layer for AI runtime Interactions*
 
