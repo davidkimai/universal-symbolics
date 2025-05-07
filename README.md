@@ -1,17 +1,17 @@
-# Universal Symbolics Repository
+# Universal Runtime Repository
 
 *Unified Runtime Layer for AI Symbolic Interactions*
 
 <p align="center">
-<img src="https://via.placeholder.com/800x200/0d1117/ffffff?text=universal-symbolics" alt="Universal Symbolics Logo"/>
+<img src="https://via.placeholder.com/800x200/0d1117/ffffff?text=universal-runtime" alt="Universal Runtime Logo"/>
 </p>
 
 ## 🌐 Overview
 
-`universal-symbolics` provides a unified interface for developer operations across frontier AI models. This repository standardizes the disparate symbolic grammars used by different AI vendors (Claude, GPT, Qwen, Gemini, DeepSeek, etc.) into a cohesive, developer-friendly framework.
+`universal-runtime` provides a unified interface for developer operations across frontier AI models. This repository standardizes the disparate symbolic grammars used by different AI vendors (Claude, GPT, Qwen, Gemini, DeepSeek, etc.) into a cohesive, developer-friendly framework.
 
 ---
-# Universal Symbolics Lexicon
+# Universal Runtime Lexicon
 
 <div align="center">
 <h2>🜏 The Developer's Rosetta Stone for LLM Symbolic Operations 🜏</h2>
@@ -71,7 +71,7 @@ The following registry maps all universal symbolic operations to their vendor-sp
 ## Symbolic Operation Schema
 
 ```yaml
-# universal-symbolics-schema.yml
+# universal-runtime-schema.yml
 
 # Core Operation Types
 operation_types:
@@ -434,7 +434,7 @@ vendor_implementations:
     emulation_strategy: "instruction_tuning"
 ```
 
-## Glyph Mapping for Universal Symbolics
+## Glyph Mapping for Universal Runtime
 
 | Domain | Universal Command | Primary Glyph | Secondary Glyph | Semantic Meaning | 
 |--------|------------------|---------------|-----------------|------------------|
@@ -487,8 +487,8 @@ vendor_implementations:
 ### JavaScript SDK
 
 ```javascript
-// Universal Symbolics JavaScript SDK
-import { UniversalSymbolics } from 'universal-symbolics';
+// Universal Runtime JavaScript SDK
+import { UniversalSymbolics } from 'universal-runtime';
 
 const symbolics = new UniversalSymbolics({
   defaultVendor: 'claude',  // Initial model vendor
@@ -538,7 +538,7 @@ const claudeSpecific = symbolics.vendor.claude.reflection({
 ### Python SDK
 
 ```python
-# Universal Symbolics Python SDK
+# Universal Runtime Python SDK
 from universal_symbolics import UniversalSymbolics
 from universal_symbolics.operations import reflection, collapse, shell
 
@@ -591,7 +591,7 @@ claude_specific = symbolics.vendor.claude.reflection(
 ### REST API Example
 
 ```http
-POST https://api.universal-symbolics.com/v1/operations
+POST https://api.universal-runtime.com/v1/operations
 Content-Type: application/json
 Authorization: Bearer YOUR_API_KEY
 
@@ -670,7 +670,7 @@ Response:
 The Grammar Transformation Engine enables dynamic translation between different symbolic grammars:
 
 ```typescript
-// Universal Symbolics Grammar Transformation Engine
+// Universal Runtime Grammar Transformation Engine
 class GrammarTransformationEngine {
   // Transform between vendor-specific symbolic grammars
   transform(
