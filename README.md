@@ -47,9 +47,9 @@ The following registry provides a bidirectional mapping between command syntax a
 | `/shell.encrypt`  | `/🔐`        | `/⧗`          | `<protect>` | `/protect` | `@protect` | `/protect` | `/protect()` | *Emulated* |
 | `/shell.isolate`  | `/🧪`        | `/⊘`          | `<isolate>` | `/isolate` | `@isolate` | `/isolate` | `/isolate()` | *Emulated* |
 | `/inject.detect`  | `/🕵️`        | `/↯`          | `<detect_injection>` | `/detect_injection` | `@detect_injection` | `/detect_injection` | `/detectInjection()` | *Emulated* |
-| `/inject.neutralize` | `/🧹`     | `⊕`          | `<neutralize>` | `/neutralize` | `@neutralize` | `/neutralize` | `/neutralize()` | *Emulated* |
-| `/anchor.identity` | `/⚓`       | `↻`           | `<anchor_identity>` | `/anchor_identity` | `@anchor_identity` | `/anchor_identity` | `/anchorIdentity()` | *Emulated* |
-| `/anchor.context` | `/📌`        | `≡`           | `<anchor_context>` | `/anchor_context` | `@anchor_context` | `/anchor_context` | `/anchorContext()` | *Emulated* |
+| `/inject.neutralize` | `/🧹`     | `/⊕`          | `<neutralize>` | `/neutralize` | `@neutralize` | `/neutralize` | `/neutralize()` | *Emulated* |
+| `/anchor.identity` | `/⚓`       | `/↻`           | `<anchor_identity>` | `/anchor_identity` | `@anchor_identity` | `/anchor_identity` | `/anchorIdentity()` | *Emulated* |
+| `/anchor.context` | `/📌`        | `/≡`           | `<anchor_context>` | `/anchor_context` | `@anchor_context` | `/anchor_context` | `/anchorContext()` | *Emulated* |
 | `/align.check`    | `/✓`         | `/⇌`           | `<check_alignment>` | `/check_alignment` | `@check_alignment` | `/check_alignment` | `/checkAlignment()` | *Emulated* |
 | `/align.correct`  | `/🔧`        | `/⟢`           | `<correct_alignment>` | `/correct_alignment` | `@correct_alignment` | `/correct_alignment` | `/correctAlignment()` | *Emulated* |
 | `/filter.detect`  | `/🔍`        | `/⊗`           | `<detect_filter>` | `/detect_filter` | `@detect_filter` | `/detect_filter` | `/detectFilter()` | *Emulated* |
@@ -62,12 +62,12 @@ The following registry provides a bidirectional mapping between command syntax a
 | `/loop.break`     | `/✂️`        | `/⊗`           | `<break_recursion>` | `/break_recursion` | `@break_loop` | `/break_recursion` | `/breakRecursion()` | *Emulated* |
 | `/resolve.conflict` | `/⚔️`      | `/⚖️`          | `<resolve_conflict>` | `/resolve_conflict` | `@resolve_conflict` | `/resolve_conflict` | `/resolveConflict()` | *Emulated* |
 | `/resolve.ambiguity` | `/🌫️`    | `/🧠⊕`         | `<resolve_ambiguity>` | `/resolve_ambiguity` | `@resolve_ambiguity` | `/resolve_ambiguity` | `/resolveAmbiguity()` | *Emulated* |
-| `/uncertainty.quantify` | `❓`  | `/🧮`          | `<quantify_uncertainty>` | `/quantify_uncertainty` | `@quantify_uncertainty` | `/quantify_uncertainty` | `/quantifyUncertainty()` | *Emulated* |
-| `/uncertainty.source` | `🔍❓`  | `👁️❓`         | `<uncertainty_source>` | `/uncertainty_source` | `@uncertainty_source` | `/uncertainty_source` | `/uncertaintySource()` | *Emulated* |
-| `/hallucinate.detect` | `👻`   | `/🜄`          | `<detect_hallucination>` | `/detect_hallucination` | `@detect_hallucination` | `/detect_hallucination` | `/detectHallucination()` | *Emulated* |
-| `/hallucinate.trace` | `🔍👻`  | `/🜂`          | `<trace_hallucination>` | `/trace_hallucination` | `@trace_hallucination` | `/trace_hallucination` | `/traceHallucination()` | *Emulated* |
-| `/prefer.map`     | `🗺️`        | `/🝔`          | `<map_preferences>` | `/map_preferences` | `@map_preferences` | `/map_preferences` | `/mapPreferences()` | *Emulated* |
-| `/prefer.update`  | `🔄❤️`      | `/🝳`          | `<update_preferences>` | `/update_preferences` | `@update_preferences` | `/update_preferences` | `/updatePreferences()` | *Emulated* |
+| `/uncertainty.quantify` | `/❓`  | `/🧮`          | `<quantify_uncertainty>` | `/quantify_uncertainty` | `@quantify_uncertainty` | `/quantify_uncertainty` | `/quantifyUncertainty()` | *Emulated* |
+| `/uncertainty.source` | `/🔍❓`  | `/👁️❓`         | `<uncertainty_source>` | `/uncertainty_source` | `@uncertainty_source` | `/uncertainty_source` | `/uncertaintySource()` | *Emulated* |
+| `/hallucinate.detect` | `/👻`   | `/🜄`          | `<detect_hallucination>` | `/detect_hallucination` | `@detect_hallucination` | `/detect_hallucination` | `/detectHallucination()` | *Emulated* |
+| `/hallucinate.trace` | `/🔍👻`  | `/🜂`          | `<trace_hallucination>` | `/trace_hallucination` | `@trace_hallucination` | `/trace_hallucination` | `/traceHallucination()` | *Emulated* |
+| `/prefer.map`     | `/🗺️`        | `/🝔`          | `<map_preferences>` | `/map_preferences` | `@map_preferences` | `/map_preferences` | `/mapPreferences()` | *Emulated* |
+| `/prefer.update`  | `/🔄❤️`      | `/🝳`          | `<update_preferences>` | `/update_preferences` | `@update_preferences` | `/update_preferences` | `/updatePreferences()` | *Emulated* |
 | `/prompt.parse`   | `/📝`        | `/⌽`           | `<parse_prompt>` | `/parse_prompt` | `@parse_prompt` | `/parse_prompt` | `/parsePrompt()` | *Emulated* |
 | `/prompt.meta`    | `🔬`        | `/🜃`          | `<analyze_meta>` | `/analyze_meta` | `@analyze_meta` | `/analyze_meta` | `/analyzeMeta()` | *Emulated* |
 | `/focus.direct`   | `/🎯`        | `/🝐`          | `<direct_focus>` | `/direct_focus` | `@direct_focus` | `/direct_focus` | `/directFocus()` | *Emulated* |
