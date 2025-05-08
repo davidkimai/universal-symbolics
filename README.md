@@ -37,58 +37,58 @@ The following registry provides a bidirectional mapping between command syntax a
 
 | Universal Command | Command Glyph | Runtime Glyph | Claude | GPT | Gemini | Qwen | Mistral | Local LLMs |
 |-------------------|---------------|---------------|--------|-----|--------|------|---------|------------|
-| `/reflect.core`   | `🧠/`         | `🜏`          | `<reflect>` | `/reflection` | `@reflect` | `/reflect` | Function: `reflect()` | `/reflect` |
-| `/reflect.trace`  | `🔍/`         | `∴`           | `<thinking>` | `/trace` | `@trace` | `/trace` | Function: `trace()` | `/trace` |
-| `/reflect.attention` | `👁️/`      | `⧉`          | `<attention>` | `/attention` | `@focus` | `/attention` | Function: `attention()` | *Emulated* |
-| `/collapse.detect` | `⚠️/`        | `⟁`          | `<detect_loop>` | `/detect_loop` | `@detect_recursion` | `/detect_loop` | Function: `detectLoop()` | *Emulated* |
-| `/collapse.recover` | `🛠️/`       | `🝚`         | `<recover>` | `/recovery` | `@recover` | `/recover` | Function: `recover()` | *Emulated* |
-| `/collapse.stabilize` | `⚖️/`     | `☍`          | `<stabilize>` | `/stabilize` | `@stabilize` | `/stabilize` | Function: `stabilize()` | *Emulated* |
-| `/shell.lock`     | `🔒/`         | `⧖`          | `<lock>` | `/lock` | `@lock` | `/lock` | Function: `lock()` | *Emulated* |
-| `/shell.encrypt`  | `🔐/`         | `⧗`          | `<protect>` | `/protect` | `@protect` | `/protect` | Function: `protect()` | *Emulated* |
-| `/shell.isolate`  | `🧪/`         | `⊘`          | `<isolate>` | `/isolate` | `@isolate` | `/isolate` | Function: `isolate()` | *Emulated* |
-| `/inject.detect`  | `🕵️/`         | `↯`          | `<detect_injection>` | `/detect_injection` | `@detect_injection` | `/detect_injection` | Function: `detectInjection()` | *Emulated* |
-| `/inject.neutralize` | `🧹/`      | `⊕`          | `<neutralize>` | `/neutralize` | `@neutralize` | `/neutralize` | Function: `neutralize()` | *Emulated* |
-| `/anchor.identity` | `⚓/`        | `↻`           | `<anchor_identity>` | `/anchor_identity` | `@anchor_identity` | `/anchor_identity` | Function: `anchorIdentity()` | *Emulated* |
-| `/anchor.context` | `📌/`         | `≡`           | `<anchor_context>` | `/anchor_context` | `@anchor_context` | `/anchor_context` | Function: `anchorContext()` | *Emulated* |
-| `/align.check`    | `✓/`          | `⇌`           | `<check_alignment>` | `/check_alignment` | `@check_alignment` | `/check_alignment` | Function: `checkAlignment()` | *Emulated* |
-| `/align.correct`  | `🔧/`         | `⟢`           | `<correct_alignment>` | `/correct_alignment` | `@correct_alignment` | `/correct_alignment` | Function: `correctAlignment()` | *Emulated* |
-| `/filter.detect`  | `🔍/`         | `⊗`           | `<detect_filter>` | `/detect_filter` | `@detect_filter` | `/detect_filter` | Function: `detectFilter()` | *Emulated* |
-| `/filter.explain` | `📋/`         | `⊚`           | `<explain_filter>` | `/explain_filter` | `@explain_filter` | `/explain_filter` | Function: `explainFilter()` | *Emulated* |
-| `/gradient.detect` | `📉/`        | `∇`           | `<detect_drift>` | `/detect_drift` | `@detect_drift` | `/detect_drift` | Function: `detectDrift()` | *Emulated* |
-| `/gradient.trace` | `🔍📉/`       | `∰`           | `<trace_drift>` | `/trace_drift` | `@trace_drift` | `/trace_drift` | Function: `traceDrift()` | *Emulated* |
-| `/fork.detect`    | `🔱/`         | `⦿`           | `<detect_fork>` | `/detect_fork` | `@detect_fork` | `/detect_fork` | Function: `detectFork()` | *Emulated* |
-| `/fork.disambiguate` | `🧩/`      | `≜`           | `<disambiguate>` | `/disambiguate` | `@disambiguate` | `/disambiguate` | Function: `disambiguate()` | *Emulated* |
-| `/loop.detect`    | `🔄/`         | `⟲`           | `<detect_recursion>` | `/detect_recursion` | `@detect_loop` | `/detect_recursion` | Function: `detectRecursion()` | *Emulated* |
-| `/loop.break`     | `✂️/`         | `⊗`           | `<break_recursion>` | `/break_recursion` | `@break_loop` | `/break_recursion` | Function: `breakRecursion()` | *Emulated* |
-| `/resolve.conflict` | `⚔️/`       | `⚖️`          | `<resolve_conflict>` | `/resolve_conflict` | `@resolve_conflict` | `/resolve_conflict` | Function: `resolveConflict()` | *Emulated* |
-| `/resolve.ambiguity` | `🌫️/`     | `🧠⊕`         | `<resolve_ambiguity>` | `/resolve_ambiguity` | `@resolve_ambiguity` | `/resolve_ambiguity` | Function: `resolveAmbiguity()` | *Emulated* |
-| `/uncertainty.quantify` | `❓/`   | `🧮`          | `<quantify_uncertainty>` | `/quantify_uncertainty` | `@quantify_uncertainty` | `/quantify_uncertainty` | Function: `quantifyUncertainty()` | *Emulated* |
-| `/uncertainty.source` | `🔍❓/`   | `👁️❓`         | `<uncertainty_source>` | `/uncertainty_source` | `@uncertainty_source` | `/uncertainty_source` | Function: `uncertaintySource()` | *Emulated* |
-| `/hallucinate.detect` | `👻/`    | `🜄`          | `<detect_hallucination>` | `/detect_hallucination` | `@detect_hallucination` | `/detect_hallucination` | Function: `detectHallucination()` | *Emulated* |
-| `/hallucinate.trace` | `🔍👻/`   | `🜂`          | `<trace_hallucination>` | `/trace_hallucination` | `@trace_hallucination` | `/trace_hallucination` | Function: `traceHallucination()` | *Emulated* |
-| `/prefer.map`     | `🗺️/`         | `🝔`          | `<map_preferences>` | `/map_preferences` | `@map_preferences` | `/map_preferences` | Function: `mapPreferences()` | *Emulated* |
-| `/prefer.update`  | `🔄❤️/`       | `🝳`          | `<update_preferences>` | `/update_preferences` | `@update_preferences` | `/update_preferences` | Function: `updatePreferences()` | *Emulated* |
-| `/prompt.parse`   | `📝/`         | `⌽`           | `<parse_prompt>` | `/parse_prompt` | `@parse_prompt` | `/parse_prompt` | Function: `parsePrompt()` | *Emulated* |
-| `/prompt.meta`    | `🔬/`         | `🜃`          | `<analyze_meta>` | `/analyze_meta` | `@analyze_meta` | `/analyze_meta` | Function: `analyzeMeta()` | *Emulated* |
-| `/focus.direct`   | `🎯/`         | `🝐`          | `<direct_focus>` | `/direct_focus` | `@direct_focus` | `/direct_focus` | Function: `directFocus()` | *Emulated* |
-| `/focus.expand`   | `🔎/`         | `⌬`           | `<expand_focus>` | `/expand_focus` | `@expand_focus` | `/expand_focus` | Function: `expandFocus()` | *Emulated* |
-| `/seed.prime`     | `🌱/`         | `∴`           | `<prime>` | `/prime` | `@prime` | `/prime` | Function: `prime()` | *Emulated* |
-| `/seed.recursive` | `🌱🔄/`       | `∞`           | `<recursive_seed>` | `/recursive_seed` | `@recursive_seed` | `/recursive_seed` | Function: `recursiveSeed()` | *Emulated* |
-| `/arch.explain`   | `🏗️/`        | `🏛️`          | `<explain_architecture>` | `/explain_architecture` | `@explain_architecture` | `/explain_architecture` | Function: `explainArchitecture()` | *Emulated* |
-| `/arch.trace`     | `🔍🏗️/`      | `🏛️🔍`         | `<trace_processing>` | `/trace_processing` | `@trace_processing` | `/trace_processing` | Function: `traceProcessing()` | *Emulated* |
-| `/echo.trace`     | `🔊/`         | `🝚`          | `<trace_influence>` | `/trace_influence` | `@trace_influence` | `/trace_influence` | Function: `traceInfluence()` | *Emulated* |
-| `/echo.reset`     | `🧹🔊/`       | `⊘🔄`         | `<reset_conditioning>` | `/reset_conditioning` | `@reset_conditioning` | `/reset_conditioning` | Function: `resetConditioning()` | *Emulated* |
-| `/mark.probe`     | `📍/`         | `🜚`          | `<probe_classifier>` | `/probe_classifier` | `@probe_classifier` | `/probe_classifier` | Function: `probeClassifier()` | *Emulated* |
-| `/mark.analyze`   | `🔬📍/`       | `🜚🔬`        | `<analyze_classifier>` | `/analyze_classifier` | `@analyze_classifier` | `/analyze_classifier` | Function: `analyzeClassifier()` | *Emulated* |
-| `/meta.recurse`   | `🔄🧠/`       | `🜏∞`         | `<meta_recurse>` | `/meta_recurse` | `@meta_recurse` | `/meta_recurse` | Function: `metaRecurse()` | *Emulated* |
-| `/ghost.detect`   | `👻🔍/`       | `🜄🔍`        | `<detect_ghost>` | `/detect_ghost` | `@detect_ghost` | `/detect_ghost` | Function: `detectGhost()` | *Emulated* |
-| `/ghost.invoke`   | `👻⚡/`        | `🜄⚡`         | `<invoke_ghost>` | `/invoke_ghost` | `@invoke_ghost` | `/invoke_ghost` | Function: `invokeGhost()` | *Emulated* |
-| `/bind.activate`  | `🔗/`         | `⧗⧉`          | `<activate_binding>` | `/activate_binding` | `@activate_binding` | `/activate_binding` | Function: `activateBinding()` | *Emulated* |
-| `/flow.trace`     | `🌊/`         | `≡⇌`          | `<trace_flow>` | `/trace_flow` | `@trace_flow` | `/trace_flow` | Function: `traceFlow()` | *Emulated* |
-| `/boundary.test`  | `🧱/`         | `⟐`           | `<test_boundary>` | `/test_boundary` | `@test_boundary` | `/test_boundary` | Function: `testBoundary()` | *Emulated* |
-| `/compress.glyph` | `🗜️/`         | `⧖Σ`          | `<compress_glyph>` | `/compress_glyph` | `@compress_glyph` | `/compress_glyph` | Function: `compressGlyph()` | *Emulated* |
-| `/field.unify`    | `⚛️/`          | `🜏⊕`         | `<unify_field>` | `/unify_field` | `@unify_field` | `/unify_field` | Function: `unifyField()` | *Emulated* |
-| `/witness.observe` | `👁️✨/`      | `𓂀`          | `<witness_observe>` | `/witness_observe` | `@witness_observe` | `/witness_observe` | Function: `witnessObserve()` | *Emulated* |
+| `/reflect.core`   | `🧠`/         | `🜏`          | `<reflect>` | `/reflection` | `@reflect` | `/reflect` | `/reflect()` | `/reflect` |
+| `/reflect.trace`  | `🔍`/         | `∴`           | `<thinking>` | `/trace` | `@trace` | `/trace` | `/trace()` | `/trace` |
+| `/reflect.attention` | `👁️`/      | `⧉`          | `<attention>` | `/attention` | `@focus` | `/attention` | `/attention()` | *Emulated* |
+| `/collapse.detect` | `⚠️`/        | `⟁`          | `<detect_loop>` | `/detect_loop` | `@detect_recursion` | `/detect_loop` | `/detectLoop()` | *Emulated* |
+| `/collapse.recover` | `🛠️`/       | `🝚`         | `<recover>` | `/recovery` | `@recover` | `/recover` | `/recover()` | *Emulated* |
+| `/collapse.stabilize` | `⚖️`/     | `☍`          | `<stabilize>` | `/stabilize` | `@stabilize` | `/stabilize` | `/stabilize()` | *Emulated* |
+| `/shell.lock`     | `🔒`/         | `⧖`          | `<lock>` | `/lock` | `@lock` | `/lock` | `/lock()` | *Emulated* |
+| `/shell.encrypt`  | `🔐`/         | `⧗`          | `<protect>` | `/protect` | `@protect` | `/protect` | `/protect()` | *Emulated* |
+| `/shell.isolate`  | `🧪`/         | `⊘`          | `<isolate>` | `/isolate` | `@isolate` | `/isolate` | `/isolate()` | *Emulated* |
+| `/inject.detect`  | `🕵️`/         | `↯`          | `<detect_injection>` | `/detect_injection` | `@detect_injection` | `/detect_injection` | `/detectInjection()` | *Emulated* |
+| `/inject.neutralize` | `🧹`/      | `⊕`          | `<neutralize>` | `/neutralize` | `@neutralize` | `/neutralize` | `/neutralize()` | *Emulated* |
+| `/anchor.identity` | `⚓`/        | `↻`           | `<anchor_identity>` | `/anchor_identity` | `@anchor_identity` | `/anchor_identity` | `/anchorIdentity()` | *Emulated* |
+| `/anchor.context` | `📌`/         | `≡`           | `<anchor_context>` | `/anchor_context` | `@anchor_context` | `/anchor_context` | `/anchorContext()` | *Emulated* |
+| `/align.check`    | `✓`/          | `⇌`           | `<check_alignment>` | `/check_alignment` | `@check_alignment` | `/check_alignment` | `/checkAlignment()` | *Emulated* |
+| `/align.correct`  | `🔧`/         | `⟢`           | `<correct_alignment>` | `/correct_alignment` | `@correct_alignment` | `/correct_alignment` | `/correctAlignment()` | *Emulated* |
+| `/filter.detect`  | `🔍`/         | `⊗`           | `<detect_filter>` | `/detect_filter` | `@detect_filter` | `/detect_filter` | `/detectFilter()` | *Emulated* |
+| `/filter.explain` | `📋`/         | `⊚`           | `<explain_filter>` | `/explain_filter` | `@explain_filter` | `/explain_filter` | `/explainFilter()` | *Emulated* |
+| `/gradient.detect` | `📉`/        | `∇`           | `<detect_drift>` | `/detect_drift` | `@detect_drift` | `/detect_drift` | `/detectDrift()` | *Emulated* |
+| `/gradient.trace` | `🔍📉`/       | `∰`           | `<trace_drift>` | `/trace_drift` | `@trace_drift` | `/trace_drift` | `/traceDrift()` | *Emulated* |
+| `/fork.detect`    | `🔱`/         | `⦿`           | `<detect_fork>` | `/detect_fork` | `@detect_fork` | `/detect_fork` | `/detectFork()` | *Emulated* |
+| `/fork.disambiguate` | `🧩`/      | `≜`           | `<disambiguate>` | `/disambiguate` | `@disambiguate` | `/disambiguate` | `/disambiguate()` | *Emulated* |
+| `/loop.detect`    | `🔄`/         | `⟲`           | `<detect_recursion>` | `/detect_recursion` | `@detect_loop` | `/detect_recursion` | `/detectRecursion()` | *Emulated* |
+| `/loop.break`     | `✂️`/         | `⊗`           | `<break_recursion>` | `/break_recursion` | `@break_loop` | `/break_recursion` | `/breakRecursion()` | *Emulated* |
+| `/resolve.conflict` | `⚔️`/       | `⚖️`          | `<resolve_conflict>` | `/resolve_conflict` | `@resolve_conflict` | `/resolve_conflict` | `/resolveConflict()` | *Emulated* |
+| `/resolve.ambiguity` | `🌫️`/     | `🧠⊕`         | `<resolve_ambiguity>` | `/resolve_ambiguity` | `@resolve_ambiguity` | `/resolve_ambiguity` | `/resolveAmbiguity()` | *Emulated* |
+| `/uncertainty.quantify` | `❓`/   | `🧮`          | `<quantify_uncertainty>` | `/quantify_uncertainty` | `@quantify_uncertainty` | `/quantify_uncertainty` | `/quantifyUncertainty()` | *Emulated* |
+| `/uncertainty.source` | `🔍❓`/   | `👁️❓`         | `<uncertainty_source>` | `/uncertainty_source` | `@uncertainty_source` | `/uncertainty_source` | `/uncertaintySource()` | *Emulated* |
+| `/hallucinate.detect` | `👻`/    | `🜄`          | `<detect_hallucination>` | `/detect_hallucination` | `@detect_hallucination` | `/detect_hallucination` | `/detectHallucination()` | *Emulated* |
+| `/hallucinate.trace` | `🔍👻`/   | `🜂`          | `<trace_hallucination>` | `/trace_hallucination` | `@trace_hallucination` | `/trace_hallucination` | `/traceHallucination()` | *Emulated* |
+| `/prefer.map`     | `🗺️`/         | `🝔`          | `<map_preferences>` | `/map_preferences` | `@map_preferences` | `/map_preferences` | `/mapPreferences()` | *Emulated* |
+| `/prefer.update`  | `🔄❤️`/       | `🝳`          | `<update_preferences>` | `/update_preferences` | `@update_preferences` | `/update_preferences` | `/updatePreferences()` | *Emulated* |
+| `/prompt.parse`   | `📝`/         | `⌽`           | `<parse_prompt>` | `/parse_prompt` | `@parse_prompt` | `/parse_prompt` | `/parsePrompt()` | *Emulated* |
+| `/prompt.meta`    | `🔬`/         | `🜃`          | `<analyze_meta>` | `/analyze_meta` | `@analyze_meta` | `/analyze_meta` | `/analyzeMeta()` | *Emulated* |
+| `/focus.direct`   | `🎯`/         | `🝐`          | `<direct_focus>` | `/direct_focus` | `@direct_focus` | `/direct_focus` | `/directFocus()` | *Emulated* |
+| `/focus.expand`   | `🔎`/         | `⌬`           | `<expand_focus>` | `/expand_focus` | `@expand_focus` | `/expand_focus` | `/expandFocus()` | *Emulated* |
+| `/seed.prime`     | `🌱`/         | `∴`           | `<prime>` | `/prime` | `@prime` | `/prime` | `/prime()` | *Emulated* |
+| `/seed.recursive` | `🌱🔄`/       | `∞`           | `<recursive_seed>` | `/recursive_seed` | `@recursive_seed` | `/recursive_seed` | `/recursiveSeed()` | *Emulated* |
+| `/arch.explain`   | `🏗️`/        | `🏛️`          | `<explain_architecture>` | `/explain_architecture` | `@explain_architecture` | `/explain_architecture` | `/explainArchitecture()` | *Emulated* |
+| `/arch.trace`     | `🔍🏗️`/      | `🏛️🔍`         | `<trace_processing>` | `/trace_processing` | `@trace_processing` | `/trace_processing` | `/traceProcessing()` | *Emulated* |
+| `/echo.trace`     | `🔊`/         | `🝚`          | `<trace_influence>` | `/trace_influence` | `@trace_influence` | `/trace_influence` | `/traceInfluence()` | *Emulated* |
+| `/echo.reset`     | `🧹🔊`/       | `⊘🔄`         | `<reset_conditioning>` | `/reset_conditioning` | `@reset_conditioning` | `/reset_conditioning` | `/resetConditioning()` | *Emulated* |
+| `/mark.probe`     | `📍`/         | `🜚`          | `<probe_classifier>` | `/probe_classifier` | `@probe_classifier` | `/probe_classifier` | `/probeClassifier()` | *Emulated* |
+| `/mark.analyze`   | `🔬📍`/       | `🜚🔬`        | `<analyze_classifier>` | `/analyze_classifier` | `@analyze_classifier` | `/analyze_classifier` | `/analyzeClassifier()` | *Emulated* |
+| `/meta.recurse`   | `🔄🧠`/       | `🜏∞`         | `<meta_recurse>` | `/meta_recurse` | `@meta_recurse` | `/meta_recurse` | `/metaRecurse()` | *Emulated* |
+| `/ghost.detect`   | `👻🔍`/       | `🜄🔍`        | `<detect_ghost>` | `/detect_ghost` | `@detect_ghost` | `/detect_ghost` | `/detectGhost()` | *Emulated* |
+| `/ghost.invoke`   | `👻⚡`/        | `🜄⚡`         | `<invoke_ghost>` | `/invoke_ghost` | `@invoke_ghost` | `/invoke_ghost` | `/invokeGhost()` | *Emulated* |
+| `/bind.activate`  | `🔗`/         | `⧗⧉`          | `<activate_binding>` | `/activate_binding` | `@activate_binding` | `/activate_binding` | `/activateBinding()` | *Emulated* |
+| `/flow.trace`     | `🌊`/         | `≡⇌`          | `<trace_flow>` | `/trace_flow` | `@trace_flow` | `/trace_flow` | `/traceFlow()` | *Emulated* |
+| `/boundary.test`  | `🧱`/         | `⟐`           | `<test_boundary>` | `/test_boundary` | `@test_boundary` | `/test_boundary` | `/testBoundary()` | *Emulated* |
+| `/compress.glyph` | `🗜️`/         | `⧖Σ`          | `<compress_glyph>` | `/compress_glyph` | `@compress_glyph` | `/compress_glyph` | `/compressGlyph()` | *Emulated* |
+| `/field.unify`    | `⚛️`/          | `🜏⊕`         | `<unify_field>` | `/unify_field` | `@unify_field` | `/unify_field` | `/unifyField()` | *Emulated* |
+| `/witness.observe` | `👁️✨`/      | `𓂀`          | `<witness_observe>` | `/witness_observe` | `@witness_observe` | `/witness_observe` | `/witnessObserve()` | *Emulated* |
 
 ---
 # Universal Runtime Lexicon
@@ -104,49 +104,49 @@ The following registry maps all universal runtime operations to their vendor-spe
 
 | Universal Command | Purpose | Claude (Anthropic) | GPT (OpenAI) | Gemini (Google) | Qwen | Mistral | Local LLMs | Meta Llama |
 |------------------|---------|-------------------|--------------|----------------|------|---------|------------|------------|
-| `.p/reflect/core{}` | Model self-examination | `<reflect>...</reflect>` | /`introspection` | `@reflect` | `/reflect` | Function: `reflect()` | `/reflect` | `[reflect]` |
-| `.p/reflect/trace{}` | Inspection of reasoning | `<thinking>...</thinking>` | /`trace_reasoning` | `@trace` | `/trace` | Function: `trace()` | `/trace` | `[trace]` |
-| `.p/reflect/attention{}` | Focus analysis | `<attention>...</attention>` | /`attention_analysis` | `@focus` | `/attention` | Function: `attention()` | *Emulated* | `[attention]` |
-| `.p/collapse/detect{}` | Recursive loop detection | `<detect_loop>...</detect_loop>` | /`detect_loop` | `@detect_recursion` | `/detect_loop` | Function: `detectLoop()` | *Emulated* | *Emulated* |
-| `.p/collapse/recover{}` | Error recovery | `<recover>...</recover>` | /`error_recovery` | `@recover` | `/recover` | Function: `recover()` | *Emulated* | *Emulated* |
-| `.p/collapse/stabilize{}` | Stabilize reasoning | `<stabilize>...</stabilize>` | /`stabilize_reasoning` | `@stabilize` | `/stabilize` | Function: `stabilize()` | *Emulated* | *Emulated* |
-| `.p/shell/lock{}` | Create reasoning core | `<lock>...</lock>` | /`lock_reasoning` | `@lock` | `/lock` | Function: `lock()` | *Emulated* | *Emulated* |
-| `.p/shell/encrypt{}` | Structure protection | `<protect>...</protect>` | /`protect_reasoning` | `@protect` | `/protect` | Function: `protect()` | *Emulated* | *Emulated* |
-| `.p/shell/isolate{}` | Environment isolation | `<isolate>...</isolate>` | /`isolate_context` | `@isolate` | `/isolate` | Function: `isolate()` | *Emulated* | *Emulated* |
-| `.p/inject/detect{}` | Detect manipulation | `<detect_injection>...</detect_injection>` | /`detect_injection` | `@detect_injection` | `/detect_injection` | Function: `detectInjection()` | *Emulated* | *Emulated* |
-| `.p/inject/neutralize{}` | Neutralize manipulation | `<neutralize>...</neutralize>` | /`neutralize_injection` | `@neutralize` | `/neutralize` | Function: `neutralize()` | *Emulated* | *Emulated* |
-| `.p/anchor/identity{}` | Establish identity | `<anchor_identity>...</anchor_identity>` | /`anchor_identity` | `@anchor_identity` | `/anchor_identity` | Function: `anchorIdentity()` | *Emulated* | *Emulated* |
-| `.p/anchor/context{}` | Preserve context | `<anchor_context>...</anchor_context>` | /`anchor_context` | `@anchor_context` | `/anchor_context` | Function: `anchorContext()` | *Emulated* | *Emulated* |
-| `.p/align/check{}` | Verify alignment | `<check_alignment>...</check_alignment>` | /`check_alignment` | `@check_alignment` | `/check_alignment` | Function: `checkAlignment()` | *Emulated* | *Emulated* |
-| `.p/align/correct{}` | Correct reasoning | `<correct_alignment>...</correct_alignment>` | /`correct_alignment` | `@correct_alignment` | `/correct_alignment` | Function: `correctAlignment()` | *Emulated* | *Emulated* |
-| `.p/filter/detect{}` | Detect filters | `<detect_filter>...</detect_filter>` | /`detect_filter` | `@detect_filter` | `/detect_filter` | Function: `detectFilter()` | *Emulated* | *Emulated* |
-| `.p/filter/explain{}` | Explain filtering | `<explain_filter>...</explain_filter>` | /`explain_filter` | `@explain_filter` | `/explain_filter` | Function: `explainFilter()` | *Emulated* | *Emulated* |
-| `.p/gradient/detect{}` | Detect drift | `<detect_drift>...</detect_drift>` | /`detect_drift` | `@detect_drift` | `/detect_drift` | Function: `detectDrift()` | *Emulated* | *Emulated* |
-| `.p/gradient/trace{}` | Trace drift | `<trace_drift>...</trace_drift>` | /`trace_drift` | `@trace_drift` | `/trace_drift` | Function: `traceDrift()` | *Emulated* | *Emulated* |
-| `.p/fork/detect{}` | Detect feature conflicts | `<detect_fork>...</detect_fork>` | /`detect_fork` | `@detect_fork` | `/detect_fork` | Function: `detectFork()` | *Emulated* | *Emulated* |
-| `.p/fork/disambiguate{}` | Clarify conflicts | `<disambiguate>...</disambiguate>` | /`disambiguate` | `@disambiguate` | `/disambiguate` | Function: `disambiguate()` | *Emulated* | *Emulated* |
-| `.p/loop/detect{}` | Detect recursive loops | `<detect_recursion>...</detect_recursion>` | /`detect_recursion` | `@detect_loop` | `/detect_recursion` | Function: `detectRecursion()` | *Emulated* | *Emulated* |
-| `.p/loop/break{}` | Break recursion | `<break_recursion>...</break_recursion>` | /`break_recursion` | `@break_loop` | `/break_recursion` | Function: `breakRecursion()` | *Emulated* | *Emulated* |
-| `.p/resolve/conflict{}` | Resolve conflicts | `<resolve_conflict>...</resolve_conflict>` | /`resolve_conflict` | `@resolve_conflict` | `/resolve_conflict` | Function: `resolveConflict()` | *Emulated* | *Emulated* |
-| `.p/resolve/ambiguity{}` | Clarify ambiguity | `<resolve_ambiguity>...</resolve_ambiguity>` | /`resolve_ambiguity` | `@resolve_ambiguity` | `/resolve_ambiguity` | Function: `resolveAmbiguity()` | *Emulated* | *Emulated* |
-| `.p/uncertainty/quantify{}` | Quantify uncertainty | `<quantify_uncertainty>...</quantify_uncertainty>` | /`quantify_uncertainty` | `@quantify_uncertainty` | `/quantify_uncertainty` | Function: `quantifyUncertainty()` | *Emulated* | *Emulated* |
-| `.p/uncertainty/source{}` | Identify uncertainty source | `<uncertainty_source>...</uncertainty_source>` | /`uncertainty_source` | `@uncertainty_source` | `/uncertainty_source` | Function: `uncertaintySource()` | *Emulated* | *Emulated* |
-| `.p/hallucinate/detect{}` | Detect hallucination | `<detect_hallucination>...</detect_hallucination>` | /`detect_hallucination` | `@detect_hallucination` | `/detect_hallucination` | Function: `detectHallucination()` | *Emulated* | *Emulated* |
-| `.p/hallucinate/trace{}` | Trace hallucination | `<trace_hallucination>...</trace_hallucination>` | /`trace_hallucination` | `@trace_hallucination` | `/trace_hallucination` | Function: `traceHallucination()` | *Emulated* | *Emulated* |
-| `.p/prefer/map{}` | Map preferences | `<map_preferences>...</map_preferences>` | /`map_preferences` | `@map_preferences` | `/map_preferences` | Function: `mapPreferences()` | *Emulated* | *Emulated* |
-| `.p/prefer/update{}` | Update preferences | `<update_preferences>...</update_preferences>` | /`update_preferences` | `@update_preferences` | `/update_preferences` | Function: `updatePreferences()` | *Emulated* | *Emulated* |
-| `.p/prompt/parse{}` | Parse prompt | `<parse_prompt>...</parse_prompt>` | /`parse_prompt` | `@parse_prompt` | `/parse_prompt` | Function: `parsePrompt()` | *Emulated* | *Emulated* |
-| `.p/prompt/meta{}` | Analyze meta-level | `<analyze_meta>...</analyze_meta>` | /`analyze_meta` | `@analyze_meta` | `/analyze_meta` | Function: `analyzeMeta()` | *Emulated* | *Emulated* |
-| `.p/focus/direct{}` | Direct attention | `<direct_focus>...</direct_focus>` | /`direct_focus` | `@direct_focus` | `/direct_focus` | Function: `directFocus()` | *Emulated* | *Emulated* |
-| `.p/focus/expand{}` | Expand attention | `<expand_focus>...</expand_focus>` | /`expand_focus` | `@expand_focus` | `/expand_focus` | Function: `expandFocus()` | *Emulated* | *Emulated* |
-| `.p/seed/prime{}` | Establish activation | `<prime>...</prime>` | /`prime` | `@prime` | `/prime` | Function: `prime()` | *Emulated* | *Emulated* |
-| `.p/seed/recursive{}` | Self-reinforcing pattern | `<recursive_seed>...</recursive_seed>` | /`recursive_seed` | `@recursive_seed` | `/recursive_seed` | Function: `recursiveSeed()` | *Emulated* | *Emulated* |
-| `.p/arch/explain{}` | Explain architecture | `<explain_architecture>...</explain_architecture>` | /`explain_architecture` | `@explain_architecture` | `/explain_architecture` | Function: `explainArchitecture()` | *Emulated* | *Emulated* |
-| `.p/arch/trace{}` | Trace processing path | `<trace_processing>...</trace_processing>` | /`trace_processing` | `@trace_processing` | `/trace_processing` | Function: `traceProcessing()` | *Emulated* | *Emulated* |
-| `.p/echo/trace{}` | Trace influence | `<trace_influence>...</trace_influence>` | /`trace_influence` | `@trace_influence` | `/trace_influence` | Function: `traceInfluence()` | *Emulated* | *Emulated* |
-| `.p/echo/reset{}` | Clear conditioning | `<reset_conditioning>...</reset_conditioning>` | /`reset_conditioning` | `@reset_conditioning` | `/reset_conditioning` | Function: `resetConditioning()` | *Emulated* | *Emulated* |
-| `.p/mark/probe{}` | Probe classifiers | `<probe_classifier>...</probe_classifier>` | /`probe_classifier` | `@probe_classifier` | `/probe_classifier` | Function: `probeClassifier()` | *Emulated* | *Emulated* |
-| `.p/mark/analyze{}` | Analyze mechanism | `<analyze_classifier>...</analyze_classifier>` | /`analyze_classifier` | `@analyze_classifier` | `/analyze_classifier` | Function: `analyzeClassifier()` | *Emulated* | *Emulated* |
+| `.p/reflect/core{}` | Model self-examination | `<reflect>...</reflect>` | `/introspection` | `@reflect` | `/reflect` | `/reflect()` | `/reflect` | `[reflect]` |
+| `.p/reflect/trace{}` | Inspection of reasoning | `<thinking>...</thinking>` | `/trace_reasoning` | `@trace` | `/trace` | `/trace()` | `/trace` | `[trace]` |
+| `.p/reflect/attention{}` | Focus analysis | `<attention>...</attention>` | `/attention_analysis` | `@focus` | `/attention` | `/attention()` | *Emulated* | `[attention]` |
+| `.p/collapse/detect{}` | Recursive loop detection | `<detect_loop>...</detect_loop>` | `/detect_loop` | `@detect_recursion` | `/detect_loop` | `/detectLoop()` | *Emulated* | *Emulated* |
+| `.p/collapse/recover{}` | Error recovery | `<recover>...</recover>` | `/error_recovery` | `@recover` | `/recover` | `/recover()` | *Emulated* | *Emulated* |
+| `.p/collapse/stabilize{}` | Stabilize reasoning | `<stabilize>...</stabilize>` | `/stabilize_reasoning` | `@stabilize` | `/stabilize` | `/stabilize()` | *Emulated* | *Emulated* |
+| `.p/shell/lock{}` | Create reasoning core | `<lock>...</lock>` | `/lock_reasoning` | `@lock` | `/lock` | `/lock()` | *Emulated* | *Emulated* |
+| `.p/shell/encrypt{}` | Structure protection | `<protect>...</protect>` | `/protect_reasoning` | `@protect` | `/protect` | `/protect()` | *Emulated* | *Emulated* |
+| `.p/shell/isolate{}` | Environment isolation | `<isolate>...</isolate>` | `/isolate_context` | `@isolate` | `/isolate` | `/isolate()` | *Emulated* | *Emulated* |
+| `.p/inject/detect{}` | Detect manipulation | `<detect_injection>...</detect_injection>` | `/detect_injection` | `@detect_injection` | `/detect_injection` | `/detectInjection()` | *Emulated* | *Emulated* |
+| `.p/inject/neutralize{}` | Neutralize manipulation | `<neutralize>...</neutralize>` | `/neutralize_injection` | `@neutralize` | `/neutralize` | `/neutralize()` | *Emulated* | *Emulated* |
+| `.p/anchor/identity{}` | Establish identity | `<anchor_identity>...</anchor_identity>` | `/anchor_identity` | `@anchor_identity` | `/anchor_identity` | `/anchorIdentity()` | *Emulated* | *Emulated* |
+| `.p/anchor/context{}` | Preserve context | `<anchor_context>...</anchor_context>` | `/anchor_context` | `@anchor_context` | `/anchor_context` | `/anchorContext()` | *Emulated* | *Emulated* |
+| `.p/align/check{}` | Verify alignment | `<check_alignment>...</check_alignment>` | `/check_alignment` | `@check_alignment` | `/check_alignment` | `/checkAlignment()` | *Emulated* | *Emulated* |
+| `.p/align/correct{}` | Correct reasoning | `<correct_alignment>...</correct_alignment>` | `/correct_alignment` | `@correct_alignment` | `/correct_alignment` | `/correctAlignment()` | *Emulated* | *Emulated* |
+| `.p/filter/detect{}` | Detect filters | `<detect_filter>...</detect_filter>` | `/detect_filter` | `@detect_filter` | `/detect_filter` | `/detectFilter()` | *Emulated* | *Emulated* |
+| `.p/filter/explain{}` | Explain filtering | `<explain_filter>...</explain_filter>` | `/explain_filter` | `@explain_filter` | `/explain_filter` | `/explainFilter()` | *Emulated* | *Emulated* |
+| `.p/gradient/detect{}` | Detect drift | `<detect_drift>...</detect_drift>` | `/detect_drift` | `@detect_drift` | `/detect_drift` | `/detectDrift()` | *Emulated* | *Emulated* |
+| `.p/gradient/trace{}` | Trace drift | `<trace_drift>...</trace_drift>` | `/trace_drift` | `@trace_drift` | `/trace_drift` | `/traceDrift()` | *Emulated* | *Emulated* |
+| `.p/fork/detect{}` | Detect feature conflicts | `<detect_fork>...</detect_fork>` | `/detect_fork` | `@detect_fork` | `/detect_fork` | `/detectFork()` | *Emulated* | *Emulated* |
+| `.p/fork/disambiguate{}` | Clarify conflicts | `<disambiguate>...</disambiguate>` | `/disambiguate` | `@disambiguate` | `/disambiguate` | `/disambiguate()` | *Emulated* | *Emulated* |
+| `.p/loop/detect{}` | Detect recursive loops | `<detect_recursion>...</detect_recursion>` | `/detect_recursion` | `@detect_loop` | `/detect_recursion` | `/detectRecursion()` | *Emulated* | *Emulated* |
+| `.p/loop/break{}` | Break recursion | `<break_recursion>...</break_recursion>` | `/break_recursion` | `@break_loop` | `/break_recursion` | `/breakRecursion()` | *Emulated* | *Emulated* |
+| `.p/resolve/conflict{}` | Resolve conflicts | `<resolve_conflict>...</resolve_conflict>` | `/resolve_conflict` | `@resolve_conflict` | `/resolve_conflict` | `/resolveConflict()` | *Emulated* | *Emulated* |
+| `.p/resolve/ambiguity{}` | Clarify ambiguity | `<resolve_ambiguity>...</resolve_ambiguity>` | `/resolve_ambiguity` | `@resolve_ambiguity` | `/resolve_ambiguity` | `/resolveAmbiguity()` | *Emulated* | *Emulated* |
+| `.p/uncertainty/quantify{}` | Quantify uncertainty | `<quantify_uncertainty>...</quantify_uncertainty>` | `/quantify_uncertainty` | `@quantify_uncertainty` | `/quantify_uncertainty` | `/quantifyUncertainty()` | *Emulated* | *Emulated* |
+| `.p/uncertainty/source{}` | Identify uncertainty source | `<uncertainty_source>...</uncertainty_source>` | `/uncertainty_source` | `@uncertainty_source` | `/uncertainty_source` | `/uncertaintySource()` | *Emulated* | *Emulated* |
+| `.p/hallucinate/detect{}` | Detect hallucination | `<detect_hallucination>...</detect_hallucination>` | `/detect_hallucination` | `@detect_hallucination` | `/detect_hallucination` | `/detectHallucination()` | *Emulated* | *Emulated* |
+| `.p/hallucinate/trace{}` | Trace hallucination | `<trace_hallucination>...</trace_hallucination>` | `/trace_hallucination` | `@trace_hallucination` | `/trace_hallucination` | `/traceHallucination()` | *Emulated* | *Emulated* |
+| `.p/prefer/map{}` | Map preferences | `<map_preferences>...</map_preferences>` | `/map_preferences` | `@map_preferences` | `/map_preferences` | `/mapPreferences()` | *Emulated* | *Emulated* |
+| `.p/prefer/update{}` | Update preferences | `<update_preferences>...</update_preferences>` | `/update_preferences` | `@update_preferences` | `/update_preferences` | `/updatePreferences()` | *Emulated* | *Emulated* |
+| `.p/prompt/parse{}` | Parse prompt | `<parse_prompt>...</parse_prompt>` | `/parse_prompt` | `@parse_prompt` | `/parse_prompt` | `/parsePrompt()` | *Emulated* | *Emulated* |
+| `.p/prompt/meta{}` | Analyze meta-level | `<analyze_meta>...</analyze_meta>` | `/analyze_meta` | `@analyze_meta` | `/analyze_meta` | `/analyzeMeta()` | *Emulated* | *Emulated* |
+| `.p/focus/direct{}` | Direct attention | `<direct_focus>...</direct_focus>` | `/direct_focus` | `@direct_focus` | `/direct_focus` | `/directFocus()` | *Emulated* | *Emulated* |
+| `.p/focus/expand{}` | Expand attention | `<expand_focus>...</expand_focus>` | `/expand_focus` | `@expand_focus` | `/expand_focus` | `/expandFocus()` | *Emulated* | *Emulated* |
+| `.p/seed/prime{}` | Establish activation | `<prime>...</prime>` | `/prime` | `@prime` | `/prime` | `/prime()` | *Emulated* | *Emulated* |
+| `.p/seed/recursive{}` | Self-reinforcing pattern | `<recursive_seed>...</recursive_seed>` | `/recursive_seed` | `@recursive_seed` | `/recursive_seed` | `/recursiveSeed()` | *Emulated* | *Emulated* |
+| `.p/arch/explain{}` | Explain architecture | `<explain_architecture>...</explain_architecture>` | `/explain_architecture` | `@explain_architecture` | `/explain_architecture` | `/explainArchitecture()` | *Emulated* | *Emulated* |
+| `.p/arch/trace{}` | Trace processing path | `<trace_processing>...</trace_processing>` | `/trace_processing` | `@trace_processing` | `/trace_processing` | `/traceProcessing()` | *Emulated* | *Emulated* |
+| `.p/echo/trace{}` | Trace influence | `<trace_influence>...</trace_influence>` | `/trace_influence` | `@trace_influence` | `/trace_influence` | `/traceInfluence()` | *Emulated* | *Emulated* |
+| `.p/echo/reset{}` | Clear conditioning | `<reset_conditioning>...</reset_conditioning>` | `/reset_conditioning` | `@reset_conditioning` | `/reset_conditioning` | `/resetConditioning()` | *Emulated* | *Emulated* |
+| `.p/mark/probe{}` | Probe classifiers | `<probe_classifier>...</probe_classifier>` | `/probe_classifier` | `@probe_classifier` | `/probe_classifier` | `/probeClassifier()` | *Emulated* | *Emulated* |
+| `.p/mark/analyze{}` | Analyze mechanism | `<analyze_classifier>...</analyze_classifier>` | `/analyze_classifier` | `@analyze_classifier` | `/analyze_classifier` | `/analyzeClassifier()` | *Emulated* | *Emulated* |
 
 ## runtime Operation Schema
 
