@@ -7,12 +7,11 @@
 
 *Unified Runtime Layer for AI runtime Interactions*
 
-> OpenAI = developer /search_control.
-> > Google = developer @task_control.
-> > > Qwen = developer /think_control.
+> OpenAI = /system_prompt.
+> > Google = developer @system_prompt.
+> > > Qwen = developer /system_prompt.
 > > > > Claude = developer <system_prompt> </system_prompt> tags.
-
-> All = Universal Developer Semiotic Layer
+> All = Universal Developer Semiotics Layer
 
 ## 🌐 Overview
 
