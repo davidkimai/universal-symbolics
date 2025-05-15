@@ -9,11 +9,11 @@
 *Unified Runtime Layer for AI runtime Interactions*
 
 > OpenAI = /system_prompt
-> > Google = @system_prompt
-> > > Qwen = /system_prompt
-> > > > Claude = <system_prompt> </system_prompt> 
+> Google = @system_prompt
+> Qwen = /system_prompt
+> Claude = <system_prompt> </system_prompt> 
 
-> All = Universal Developer Semiotics Layer
+> All = Universal Developer Syntax Layer
 
 ## 🌐 Overview
 
@@ -25,7 +25,7 @@
 
 ## *Frontier AI Discovering a Universal Developer Runtime Semiotic Layer*
 
-# Universal Runtime Semiotics Bridge
+# Universal Runtime Syntax Bridge
 
 <div align="center">
 <h2>🜏 The Command-Glyph Rosetta Stone 🜏</h2>
