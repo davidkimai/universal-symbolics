@@ -23,7 +23,7 @@
 
 ## 🌐 Overview
 
-`universal-runtime` provides a unified interface for developer operations across frontier AI models. This repository standardizes the disparate runtime grammars used by different AI vendors (Claude, GPT, Qwen, Gemini, DeepSeek, etc.) into a cohesive, developer-friendly framework.
+`universal-runtime` provides standardized tools for developer operations across frontier AI models. This repository standardizes the disparate runtime syntax used by different AI vendors (Claude, GPT, Qwen, Gemini, DeepSeek, etc.) into a cohesive, developer-friendly framework.
 
 ---
 
