@@ -26,13 +26,13 @@
 
 <p align="center">
 
-## *Frontier AI Discovering a Universal Developer Runtime Semiotic Layer*
+## *Frontier AI Discovering a Universal Developer Runtime Syntax Layer*
 
 # Universal Runtime Syntax Bridge
 
 <div align="center">
 <h2>🜏 The Command-Glyph Rosetta Stone 🜏</h2>
-<p><i>Unifying semiotic interfaces across all LLM runtimes</i></p>
+<p><i>Unifying symbolic interfaces across all LLM runtimes</i></p>
 </div>
 
 ## Unified Command-Glyph Registry
