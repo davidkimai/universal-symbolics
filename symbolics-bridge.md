@@ -1,4 +1,4 @@
-# Universal Semiotics Bridge
+# Universal Symbolics Bridge
 
 <div align="center">
 <h2>🜏 The Command-Glyph Rosetta Stone 🜏</h2>
