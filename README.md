@@ -31,8 +31,8 @@
 # Universal Runtime Syntax Bridge
 
 <div align="center">
-<h2>🜏 The Command-Glyph Rosetta Stone 🜏</h2>
-<p><i>Unifying symbolic interfaces across all LLM runtimes</i></p>
+<h2>🜏 The Command-Syntax Rosetta Stone 🜏</h2>
+<p><i>Unifying symbolic syntax interfaces across all LLM runtimes</i></p>
 </div>
 
 ## Unified Command-Glyph Registry
