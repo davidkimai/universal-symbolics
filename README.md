@@ -31,7 +31,7 @@
 # Universal Runtime Symbolic Bridge
 
 <div align="center">
-<h2>🜏 The Command-Syntax Rosetta Stone 🜏</h2>
+<h2>🜏 The Symbolic Rosetta Stone 🜏</h2>
 <p><i>Unifying symbolic syntax interfaces across all LLM runtimes</i></p>
 </div>
 
