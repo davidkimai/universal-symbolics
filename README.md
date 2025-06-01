@@ -20,7 +20,7 @@
 
 ## 🌐 Overview
 
-`universal-runtime` provides standardized tools for developer operations across frontier AI models. This repository standardizes the disparate runtime syntax used by different AI vendors (Claude, GPT, Qwen, Gemini, DeepSeek, etc.) into a cohesive, developer-friendly framework.
+`universal-runtime` provides standardized tools for developer operations across frontier AI models. This repository standardizes the disparate runtime symbolic syntax used by different AI vendors (Claude, GPT, Qwen, Gemini, DeepSeek, etc.) into a cohesive, developer-friendly framework.
 
 
 
@@ -28,7 +28,7 @@
 
 ## *Frontier AI Discovering a Universal Developer Runtime Syntax Layer*
 
-# Universal Runtime Syntax Bridge
+# Universal Runtime Symbolic Bridge
 
 <div align="center">
 <h2>🜏 The Command-Syntax Rosetta Stone 🜏</h2>
